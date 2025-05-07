@@ -160,3 +160,9 @@ yarn-error.log*
 
 # Photoshop files used to create image files
 .photoshop/
+
+# Files for local only
+.secrets/
+
+# Sentry Config File
+.sentryclirc

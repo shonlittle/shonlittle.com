@@ -7,19 +7,27 @@
 // Add third-party dependencies.
 import React from "react";
 import ReactDOM from "react-dom/client";
+import * as Sentry from "@sentry/react";
 
 // Add local dependencies.
-import "./assets/styles/index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./components/App";
 import ErrorBoundary from "./components/common/ErrorBoundary";
+
+// Add sentry configuration.
+Sentry.init({
+  dsn: process.env.REACT_APP_SENTRY_DSN,
+  // Setting this option to true will send default PII data to Sentry.
+  // For example, automatic IP address collection on events
+  sendDefaultPii: true,
+});
 
 // Create the root.
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // Render the root.
 root.render(
   <React.StrictMode>
-    <ErrorBoundary>
+    <ErrorBoundary fallback={<p>Something went wrong.</p>}>
       <App />
     </ErrorBoundary>
   </React.StrictMode>
