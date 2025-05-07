@@ -11,8 +11,7 @@ import { Box } from "@mui/material";
 
 // Add local dependencies.
 import store from "./store";
-// import Layout from "../Layout";
-import Home from "../Pages/Home";
+import Layout from "../Layout";
 
 /**
  * App component.
@@ -28,8 +27,7 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Box>
-          {/* <Layout /> */}
-          <Home />
+          <Layout />
         </Box>
       </BrowserRouter>
     </Provider>
