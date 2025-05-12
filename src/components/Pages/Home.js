@@ -6,7 +6,8 @@
 
 // Add third-party dependencies.
 import PropTypes from "prop-types";
-import { Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Box, Button } from "@mui/material";
 
 /**
  * Home component.
@@ -17,19 +18,57 @@ import { Box, Typography } from "@mui/material";
  * @returns {React.ReactElement} component.
  */
 const Home = ({ title }) => {
+  // Set navigation hook.
+
+  const navigate = useNavigate();
   // Render component.
   return (
-    <Box>
-      <Typography variant="h1">{title}</Typography>
-      return{" "}
-      <button
-        onClick={() => {
-          throw new Error("This is your first error!");
+    <Box sx={{ height: "100vh", width: "100vw", overflow: "hidden" }}>
+      {/* Software Engineering (Top Half) */}
+      <Box
+        sx={{
+          height: "50%",
+          backgroundImage: 'url("/images/software.webp")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
         }}
       >
-        Break the world
-      </button>
-      ;
+        <Button
+          variant="contained"
+          size="large"
+          onClick={() => navigate("/software")}
+        >
+          Software Engineering Portfolio
+        </Button>
+      </Box>
+
+      {/* Acting (Bottom Half) */}
+      <Box
+        sx={{
+          height: "50%",
+          backgroundImage: 'url("/images/acting.webp")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        }}
+      >
+        <Button
+          variant="contained"
+          size="large"
+          href="http://littlearts.com/shon/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Acting Portfolio
+        </Button>
+      </Box>
     </Box>
   );
 };
