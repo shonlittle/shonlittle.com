@@ -12,6 +12,6 @@ RUN npm run build
 # Use an official Python runtime as a base image.
 FROM nginx:alpine
 # Copy the current directory contents into the container.
-COPY public /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 # Expose port 80 to the outside world.
 EXPOSE 80
