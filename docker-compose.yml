@@ -16,6 +16,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "3080:80"
     networks:
       - releve2024-network
