@@ -1,0 +1,21 @@
+# © 2025 Little Shilling, Inc.
+# Shon Little
+# Created: 2025-05-11
+
+# Networks.
+networks:
+  releve2024-network:
+    external: true
+
+# Nginx to serve static files.
+services:
+  shonlittle-nginx:
+    container_name: shonlittle-nginx
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "80"
+    networks:
+      - releve2024-network
