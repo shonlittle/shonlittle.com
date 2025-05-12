@@ -4,9 +4,15 @@
 
 # Build the React app first
 FROM node:18-slim as build
+# Install dependencies, including CA certs
+RUN apt-get update && apt-get install -y ca-certificates curl && rm -rf /var/lib/apt/lists/*
+# Set the working directory in the container to /app
 WORKDIR /app
+# Copy tiles to the working directory
 COPY . .
+# Install any needed packages specified in package.json
 RUN npm install
+# Build the app for production
 RUN npm run build
 
 # Use an official Python runtime as a base image.
