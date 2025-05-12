@@ -12,7 +12,7 @@ import * as Sentry from "@sentry/react";
 // Add local dependencies.
 import reportWebVitals from "./reportWebVitals";
 import App from "./components/App";
-import ErrorBoundary from "./components/common/ErrorBoundary";
+import ErrorBoundary from "./components/Common/ErrorBoundary";
 
 // Add sentry configuration.
 Sentry.init({

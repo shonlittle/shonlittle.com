@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Add local dependencies.
 import Home from "../Pages/Home";
+import Software from "../Pages/Software";
 
 /**
  * Router component.
@@ -23,6 +24,7 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/software" element={<Software />} />
     </Routes>
   );
 };
