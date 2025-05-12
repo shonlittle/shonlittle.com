@@ -3,7 +3,7 @@
 ## Created: 2025-05-11
 
 # Build the React app first
-FROM node:18-slim as build
+FROM node:18-slim AS build
 # Install dependencies, including CA certs
 RUN apt-get update && apt-get install -y ca-certificates curl && rm -rf /var/lib/apt/lists/*
 # Set the working directory in the container to /app
