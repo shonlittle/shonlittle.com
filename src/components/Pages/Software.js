@@ -69,6 +69,35 @@ const Software = ({ title }) => {
       <Stack spacing={2} sx={{ mb: 5 }}>
         <Card>
           <CardContent>
+            <Typography variant="h6">
+              Dance Studio Scheduling Optimizer
+            </Typography>
+            <Typography variant="subtitle2" color="text.secondary">
+              Studio Schedule
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+              Developed a constraint-based scheduling system for performing arts
+              studios using Python and Google OR-Tools. The tool ingests
+              Excel-based class, teacher, and room availability data and
+              produces an optimized weekly schedule. It supports 15-minute time
+              slots, shared room constraints (e.g. accordion walls), and
+              user-defined preferences. Designed for use by studio owners with
+              minimal technical background.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              size="small"
+              href="https://github.com/shonlittle/studio-schedule"
+              target="_blank"
+            >
+              View on GitHub
+            </Button>
+          </CardActions>
+        </Card>
+
+        <Card>
+          <CardContent>
             <Typography variant="h6">Major U.S. telecom provider</Typography>
             <Typography variant="subtitle2" color="text.secondary">
               DEEP.AI Buddy
