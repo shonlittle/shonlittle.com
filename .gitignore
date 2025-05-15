@@ -166,3 +166,6 @@ yarn-error.log*
 
 # Sentry Config File
 .sentryclirc
+
+# Qodo Gen files
+.qodo/
