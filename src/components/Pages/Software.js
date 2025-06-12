@@ -1,365 +1,211 @@
 /**
  * © 2025 Little Shilling, Inc.
  * Shon Little
- * Created: 2025-05-11
+ * Created: 2025-06-12
  */
 
 // Add third-party dependencies.
-import PropTypes from "prop-types";
-import {
-  Box,
-  Typography,
-  Button,
-  Chip,
-  Stack,
-  Card,
-  CardContent,
-  CardActions,
-  Link as MuiLink,
-} from "@mui/material";
+import PropTypes from 'prop-types';
+import { AppBar, Toolbar, Typography, Button, Box, Container, Link, useScrollTrigger, Slide } from '@mui/material';
 
-/**
- * Software component.
- * @example
- * return (
- *   <Software />
- * )
- * @returns {React.ReactElement} component.
- */
-const Software = ({ title }) => {
-  // Render component.
+const HideOnScroll = ({ children }) => {
+  const trigger = useScrollTrigger();
   return (
-    <Box sx={{ p: 4, maxWidth: "1000px", mx: "auto" }}>
-      <Typography variant="h3" gutterBottom>
-        Hi, I'm Shon Little
-      </Typography>
-      <Typography variant="h6" sx={{ mb: 3 }}>
-        Software engineering leader with over 20+ years in tech, specializing in
-        people-first team building, scalable architecture, and making legacy
-        systems suck less.
-      </Typography>
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+};
 
-      {/* CTA Buttons */}
-      <Stack direction="row" spacing={2} sx={{ mb: 5 }}>
-        <Button
-          variant="contained"
-          component={MuiLink}
-          href="/pdf/shon-little-resume-2025.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          📄 View Résumé
-        </Button>
-        <Button
-          variant="outlined"
-          component={MuiLink}
-          href="https://linkedin.com/in/shonlittle"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          🔗 LinkedIn Profile
-        </Button>
-      </Stack>
-
-      {/* Featured Projects */}
-      <Typography variant="h5" gutterBottom>
-        Featured Projects
-      </Typography>
-
-      <Stack spacing={2} sx={{ mb: 5 }}>
-        <Card>
-          <CardContent>
-            <Typography variant="h6">
-              Dance Studio Scheduling Optimizer
-            </Typography>
-            <Typography variant="subtitle2" color="text.secondary">
-              Studio Schedule
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              Developed a constraint-based scheduling system for performing arts
-              studios using Python and Google OR-Tools. The tool ingests
-              Excel-based class, teacher, and room availability data and
-              produces an optimized weekly schedule. It supports 15-minute time
-              slots, shared room constraints (e.g. accordion walls), and
-              user-defined preferences. Designed for use by studio owners with
-              minimal technical background.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button
-              size="small"
-              href="https://github.com/shonlittle/studio-schedule"
-              target="_blank"
-            >
-              View on GitHub
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card>
-          <CardContent>
-            <Typography variant="h6">Major U.S. telecom provider</Typography>
-            <Typography variant="subtitle2" color="text.secondary">
-              DEEP.AI Buddy
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              I led the implementation of DEEP.AI (a modular, GenAI-powered
-              customer management platform from BCG-X) at one of the largest
-              telecoms in the U.S. The rollout enhanced our upselling, reduced
-              churn, and gave real-time insights that transformed both digital
-              and in-person customer interactions.
-            </Typography>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              fontStyle="italic"
-            >
-              Note: Proprietary code is not publicly available due to client
-              confidentiality.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" disabled>
-              View on GitHub
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card>
-          <CardContent>
-            <Typography variant="h6">A mid-sized B2B company</Typography>
-            <Typography variant="subtitle2" color="text.secondary">
-              DEEP.AI Buddy
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              Directed the deployment of DEEP.AI for a mid-sized B2B firm. The
-              sales team used it to power real-time recommendations, optimize
-              pricing, and drive personalized campaigns. The rollout transformed
-              their customer engagement strategy and directly impacted
-              acquisition, retention, and cross-sell growth.
-            </Typography>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              fontStyle="italic"
-            >
-              Note: Proprietary code is not publicly available due to client
-              confidentiality.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" disabled>
-              View on GitHub
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card>
-          <CardContent>
-            <Typography variant="h6">Industrial energy company</Typography>
-            <Typography variant="subtitle2" color="text.secondary">
-              API
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              I led development of a mission-critical pricing API for an
-              industrial energy client. The system integrated with Oracle and
-              Vendavo to provide real-time pricing guidance to sales reps
-              quoting highly configurable products. We designed for high
-              availability, input validation, and low latency to ensure
-              reliability. The solution streamlined quoting, improved accuracy,
-              and gave our client better control over pricing strategy.
-            </Typography>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              fontStyle="italic"
-            >
-              Note: Proprietary code is not publicly available due to client
-              confidentiality.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" disabled>
-              View on GitHub
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card>
-          <CardContent>
-            <Typography variant="h6">
-              A major multinational agribusiness
-            </Typography>
-            <Typography variant="subtitle2" color="text.secondary">
-              MFG.AI
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              Partnered with a global agribusiness to digitize food safety and
-              compliance processes by building a suite of six factory-floor
-              applications. We replaced paper-based inspections with
-              rugged-tablet workflows, added AI to forecast labor turnout and
-              detect defects via cameras, and upgraded factory Wi-Fi to support
-              real-time data entry. This led to fewer compliance issues, faster
-              inspections, and increased operational efficiency.
-            </Typography>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              fontStyle="italic"
-            >
-              Note: Proprietary code is not publicly available due to client
-              confidentiality.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" disabled>
-              View on GitHub
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card>
-          <CardContent>
-            <Typography variant="h6">Salt manufacturing company</Typography>
-            <Typography variant="subtitle2" color="text.secondary">
-              Factory of the Future
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              Modernized operations at a legacy salt manufacturing company using
-              Factory of the Future AI tooling. Introduced predictive
-              maintenance and visual quality inspection systems, reducing
-              equipment downtime and defect rates.
-            </Typography>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              fontStyle="italic"
-            >
-              Note: Proprietary code is not publicly available due to client
-              confidentiality.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" disabled>
-              View on GitHub
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card>
-          <CardContent>
-            <Typography variant="h6">Dance Studio Scheduler</Typography>
-            <Typography variant="body2" color="text.secondary">
-              A Python-based system to optimize scheduling and room use at a
-              performing arts center.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" target="_blank" disabled>
-              View on GitHub
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card>
-          <CardContent>
-            <Typography variant="h6">AI Assistant Integration Demo</Typography>
-            <Typography variant="body2" color="text.secondary">
-              A React-based prototype using OpenAI APIs to assist BCG teams with
-              documentation and code reviews.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" target="_blank" disabled>
-              View on GitHub
-            </Button>
-          </CardActions>
-        </Card>
-      </Stack>
-
-      {/* Skills */}
-      <Typography variant="h5" gutterBottom>
-        Core Skills
-      </Typography>
-      <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 5 }}>
-        {[
-          "JavaScript",
-          "TypeScript",
-          "React.js",
-          "Angular",
-          "D3.js",
-          "Node",
-          "Express",
-          "Redux",
-          "GO",
-          "jQuery",
-          "Python",
-          "Django REST Framework",
-          "FastAPI",
-          "Flask",
-          "Java",
-          "Spring Boot",
-          "GraphQL",
-          "PHP",
-          ".NET",
-          "C#",
-          "VB |VSTO",
-          "ASP",
-          "VBA",
-          "HTML",
-          "CSS",
-          "Material Design",
-          "Material UI",
-          "Bootstrap",
-          "Sass",
-          "LESS",
-          "PostgreSQL",
-          "MongoDB",
-          "Microsoft SQL Server",
-          "MySQL",
-          "SQLite",
-          "Neo4j",
-          "RedShift",
-          "Microsoft Access",
-          "AWS",
-          "GCP",
-          "Azure",
-          "Docker",
-          "Docker Compose",
-          "Kubernetes",
-          "git",
-          "GitHub",
-          "GitHub Actions",
-          "CircleCI",
-          "Agile Coaching",
-          "Team Leadership",
-        ].map((skill) => (
-          <Chip key={skill} label={skill} />
-        ))}
-      </Stack>
-
-      {/* Quote */}
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        sx={{ fontStyle: "italic" }}
+const Navigation = () => {
+  return (
+    <HideOnScroll>
+      <AppBar
+        position="fixed"
+        sx={{
+          background: 'rgba(10, 10, 10, 0.95)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: 'none',
+          paddingY: 1,
+        }}
       >
-        "Shon combines deep technical insight with calm, confidence-building
-        leadership." — Former colleague
-      </Typography>
+        <Toolbar sx={{ justifyContent: 'space-between', maxWidth: 1200, mx: 'auto', width: '100%' }}>
+          <Typography
+            variant="h6"
+            sx={{
+              background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              fontWeight: 700,
+            }}
+          >
+            Shon Little
+          </Typography>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 }}>
+            {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map(item => (
+              <Link
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                underline="none"
+                color="inherit"
+                sx={{
+                  position: 'relative',
+                  '&:hover': {
+                    color: '#00d4ff',
+                  },
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: -5,
+                    left: 0,
+                    width: 0,
+                    height: 2,
+                    background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
+                    transition: 'width 0.3s ease',
+                  },
+                  '&:hover::after': {
+                    width: '100%',
+                  },
+                }}
+              >
+                {item}
+              </Link>
+            ))}
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </HideOnScroll>
+  );
+};
+
+const CodeOverlay = () => {
+  const codeLines = [
+    'const softwareEngineer = {',
+    "  name: 'Shon Little',",
+    "  role: 'Software Engineering Manager',",
+    "  company: 'Boston Consulting Group',",
+    "  location: 'Los Angeles, CA',",
+    "  passion: 'Building scalable solutions',",
+    '};',
+  ];
+  return (
+    <Box
+      sx={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        opacity: 0.1,
+        fontFamily: 'Courier New, monospace',
+        fontSize: 14,
+        lineHeight: 1.5,
+        color: '#0066cc',
+        pointerEvents: 'none',
+        overflow: 'hidden',
+        zIndex: 1,
+      }}
+    >
+      {codeLines.map((line, i) => (
+        <Box
+          key={line}
+          sx={{
+            margin: '0.5rem 1rem',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            animation: 'typewriter 20s linear infinite',
+            animationDelay: `${i * 0.5}s`,
+            animationFillMode: 'both',
+          }}
+        >
+          {line}
+        </Box>
+      ))}
     </Box>
   );
 };
 
-// Set component property types.
-Software.propTypes = {
-  title: PropTypes.string,
+const Hero = () => {
+  return (
+    <Box
+      id="home"
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      <Box
+        sx={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          background: `
+          radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 40% 80%, rgba(255, 107, 53, 0.2) 0%, transparent 50%)
+        `,
+          animation: 'float 20s ease-in-out infinite',
+          zIndex: 0,
+        }}
+      />
+      <CodeOverlay />
+      <Container sx={{ textAlign: 'center', zIndex: 2, maxWidth: 800 }}>
+        <Typography
+          variant="h2"
+          sx={{
+            fontWeight: 700,
+            background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            mb: 2,
+          }}
+        >
+          Shon Little
+        </Typography>
+        <Typography variant="h5" sx={{ color: '#a0a0a0', mb: 3 }}>
+          Software Engineering Manager
+        </Typography>
+        <Typography variant="body1" sx={{ color: '#e0e0e0', mb: 4 }}>
+          Building next-generation AI and IoT solutions at Boston Consulting Group. From GenAI platforms transforming
+          customer experiences to digital twins revolutionizing manufacturing - I lead teams that turn cutting-edge
+          technology into measurable business impact.
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Button
+            variant="contained"
+            sx={{ borderRadius: 5, px: 4, background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)' }}
+            href="#projects"
+          >
+            View My Work
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{ borderRadius: 5, px: 4, borderColor: '#0066cc', color: '#e0e0e0' }}
+            href="#contact"
+          >
+            Get In Touch
+          </Button>
+        </Box>
+      </Container>
+    </Box>
+  );
 };
 
-// Set component default properties.
-Software.defaultProps = {
-  title: "Software",
+const Portfolio = () => {
+  return (
+    <>
+      <Navigation />
+      <Hero />
+    </>
+  );
 };
 
-// Export component.
-export default Software;
+HideOnScroll.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default Portfolio;
