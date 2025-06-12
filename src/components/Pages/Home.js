@@ -28,7 +28,7 @@ const Home = ({ title }) => {
       <Box
         sx={{
           height: "50%",
-          backgroundImage: 'url("/images/software.webp")',
+          backgroundImage: 'url("/images/software.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
