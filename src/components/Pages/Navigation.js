@@ -12,6 +12,12 @@ import { Box, Typography, Slide, useScrollTrigger, AppBar, Toolbar, Button } fro
 // Add local dependencies.
 import useNavigation from '../../hooks/useNavigation';
 
+/**
+ * Component to hide on scroll.
+ * @param {Object} props - Component properties.
+ * @param {React.ReactNode} props.children - Children components to render.
+ * @returns {React.ReactElement} Rendered component.
+ */
 const HideOnScroll = ({ children }) => {
   const trigger = useScrollTrigger();
   return (
