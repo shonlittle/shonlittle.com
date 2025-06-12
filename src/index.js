@@ -27,9 +27,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // Render the root.
 root.render(
   <React.StrictMode>
-    <ErrorBoundary fallback={<p>Something went wrong.</p>}>
+    {process.env.NODE_ENV === 'production' ? (
+      <ErrorBoundary fallback={<p>Something went wrong.</p>}>
+        <App />
+      </ErrorBoundary>
+    ) : (
       <App />
-    </ErrorBoundary>
+    )}
   </React.StrictMode>
 );
 
