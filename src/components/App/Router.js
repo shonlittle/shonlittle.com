@@ -5,11 +5,11 @@
  */
 
 // Add third-party dependencies.
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
 // Add local dependencies.
-import Home from "../Pages/Home";
-import Software from "../Pages/Software";
+import Home from '../Pages/Home';
+import Software from '../Pages/Software';
 
 /**
  * Router component.

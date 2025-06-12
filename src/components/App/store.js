@@ -5,7 +5,7 @@
  */
 
 // Add third-party dependencies.
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
 // Create the store.
 const store = configureStore({

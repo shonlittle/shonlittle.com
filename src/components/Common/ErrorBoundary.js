@@ -5,8 +5,9 @@
  */
 
 // Add third-party dependencies.
-import React from "react";
-import { Typography, Box } from "@mui/material";
+import React from 'react';
+import { Typography, Box } from '@mui/material';
+import PropTypes from 'prop-types';
 
 /**
  * ErrorBoundary component
@@ -14,36 +15,44 @@ import { Typography, Box } from "@mui/material";
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     // Update state so the next render shows fallback UI
-    return { hasError: true, error };
+    return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("Uncaught error in ErrorBoundary:", error, errorInfo);
+    console.error('Uncaught error in ErrorBoundary:', error, errorInfo);
     // Optionally log to an external service
   }
 
   render() {
-    if (this.state.hasError) {
+    const { hasError } = this.state;
+    const { children } = this.props;
+    if (hasError) {
       return (
-        <Box sx={{ p: 4, textAlign: "center" }}>
+        <Box sx={{ p: 4, textAlign: 'center' }}>
           <Typography variant="h4" color="error" gutterBottom>
             Something went wrong.
           </Typography>
-          <Typography variant="body1">
-            Our team has been notified. Please try refreshing the page.
-          </Typography>
+          <Typography variant="body1">Our team has been notified. Please try refreshing the page.</Typography>
         </Box>
       );
     }
 
-    return this.props.children;
+    return children;
   }
 }
 
 // Export component.
+ErrorBoundary.propTypes = {
+  children: PropTypes.node,
+};
+
+ErrorBoundary.defaultProps = {
+  children: null,
+};
+
 export default ErrorBoundary;
