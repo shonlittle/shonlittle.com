@@ -52,8 +52,6 @@ const HideOnScroll = ({ children }) => {
  * @returns {React.ReactElement} component.
  */
 const Navigation = () => {
-  // Add console log for debugging
-  console.log('Navigation component rendering');
   // State for mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollToSection } = useNavigation(setIsMenuOpen);
