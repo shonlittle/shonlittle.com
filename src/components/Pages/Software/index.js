@@ -5,20 +5,20 @@
  */
 
 // Add third-party dependencies.
-import React, { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Box, CircularProgress } from '@mui/material';
 
 // Add local dependencies.
 import Navigation from './Navigation';
 
 // Lazy load components.
-const Hero = React.lazy(() => import('./Hero'));
-const About = React.lazy(() => import('./About'));
-const Skills = React.lazy(() => import('./Skills'));
-const Projects = React.lazy(() => import('./Projects'));
-const Experience = React.lazy(() => import('./Experience'));
-const Contact = React.lazy(() => import('./Contact'));
-const Footer = React.lazy(() => import('./Footer'));
+const Hero = lazy(() => import('./Hero'));
+const About = lazy(() => import('./About'));
+const Skills = lazy(() => import('./Skills'));
+const Projects = lazy(() => import('./Projects'));
+const Experience = lazy(() => import('./Experience'));
+const Contact = lazy(() => import('./Contact'));
+const Footer = lazy(() => import('./Footer'));
 
 // Simple loading indicator
 const SectionLoader = () => (
