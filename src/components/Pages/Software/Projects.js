@@ -26,8 +26,8 @@ const projects = [
     emoji: '🤖',
     title: 'DEEP.AI Platform Implementation',
     description:
-      "Led the deployment of BCG's GenAI-powered customer management platform for major telecom providers and B2B companies. Enhanced upselling, reduced churn, and transformed digital customer interactions with real-time AI insights.",
-    technologies: ['GenAI', 'Machine Learning', 'Customer Analytics', 'Real-time Processing'],
+      "Led the deployment of BCG's generative AI customer management platform for telecom and B2B clients. Boosted upselling and retention using Retrieval-Augmented Generation (RAG), real-time customer analytics, and LLM-driven insights.",
+    technologies: ['RAG', 'Generative AI', 'LangChain', 'OpenAI API', 'Customer Analytics'],
     links: [
       { label: 'Case Study', href: '#' },
       { label: 'Technical Details', href: '#' },
@@ -37,10 +37,10 @@ const projects = [
   {
     id: 'factory-future',
     emoji: '🏭',
-    title: 'Factory of the Future - IoT & Digital Twin',
+    title: 'Factory of the Future – MFG.AI',
     description:
-      'Modernized manufacturing operations for JBT and Cargill Salt using IoT sensors, digital twins, and edge computing. Built high-volume data ingestion systems with MQTT, Azure Event Grid, and real-time dashboards for predictive maintenance.',
-    technologies: ['IoT', 'Digital Twin', 'Azure', 'MQTT', 'Edge Computing'],
+      'Modernized operations at JBT and Cargill Salt with IoT sensors, digital twins, and AI-powered defect logging. Integrated edge computing with GCP-hosted FastAPI services and React dashboards for predictive maintenance and analytics.',
+    technologies: ['Digital Twin', 'Edge Computing', 'IoT', 'FastAPI', 'GCP'],
     links: [
       { label: 'Architecture', href: '#' },
       { label: 'Impact Report', href: '#' },
@@ -50,10 +50,10 @@ const projects = [
   {
     id: 'drug-ai',
     emoji: '💊',
-    title: 'DRUG.AI - Pharma Discovery Platform',
+    title: 'DRUG.AI – Pharma Discovery Platform',
     description:
-      'Built an AI-powered tool that analyzes gene-disease relationships to suggest new uses for existing drugs. Transformed data science prototypes into production-ready systems, accelerating hypothesis generation in pharmaceutical discovery.',
-    technologies: ['AI/ML', 'Bioinformatics', 'Data Science', 'Production APIs'],
+      'Designed and deployed an AI-powered analytics tool for drug repurposing. Used graph traversal, NLP, and real-time filters to reveal gene-disease relationships, accelerating pharma research across enterprise and academic users.',
+    technologies: ['AI/ML', 'Bioinformatics', 'Graph Analytics', 'Spring Boot', 'PostgreSQL'],
     links: [
       { label: 'Research Paper', href: '#' },
       { label: 'Demo', href: '#' },
@@ -63,10 +63,10 @@ const projects = [
   {
     id: 'airline-optimization',
     emoji: '✈️',
-    title: 'Airline Flight Rerouting Optimization',
+    title: 'Airline Disruption Optimization Engine',
     description:
-      'Developed a real-time flight rerouting optimization engine for major EU airline disruptions. Went from concept to functional prototype in days, helping avoid substantial revenue loss during operational crises.',
-    technologies: ['Optimization Algorithms', 'Real-time Systems', 'Aviation', 'Rapid Prototyping'],
+      'Built a real-time rerouting engine for a major EU airline to handle flight disruptions. Delivered a working MVP in under a week using Python, D3.js, and optimization algorithms—mitigating losses during high-impact operational events.',
+    technologies: ['Python', 'D3.js', 'Optimization Algorithms', 'Real-time Systems', 'Azure'],
     links: [
       { label: 'Algorithm Details', href: '#' },
       { label: 'Case Study', href: '#' },
@@ -74,15 +74,15 @@ const projects = [
     gradient: 'linear-gradient(135deg, #4ade80 0%, #10b981 100%)',
   },
   {
-    id: 'industrial-api',
-    emoji: '💰',
-    title: 'Industrial Automation API',
+    id: 'manufacturing-api',
+    emoji: '🔌',
+    title: 'Real-time Manufacturing API Suite',
     description:
-      'Led development of a mission-critical pricing API for industrial energy solutions. Integrated with Oracle and Vendavo for real-time pricing guidance, designed for high availability and low latency.',
-    technologies: ['REST APIs', 'Oracle Integration', 'High Availability', 'Enterprise Systems'],
+      'Led architecture and development of reusable microservices for manufacturing workflows. Designed scalable, low-latency APIs with FastAPI and PostgreSQL, integrated into BCG’s MFG.AI suite to support global deployment.',
+    technologies: ['FastAPI', 'PostgreSQL', 'Microservices', 'Kubernetes', 'CI/CD'],
     links: [
-      { label: 'API Documentation', href: '#' },
-      { label: 'Performance Metrics', href: '#' },
+      { label: 'API Docs', href: '#' },
+      { label: 'Engineering Overview', href: '#' },
     ],
     gradient: 'linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%)',
   },
@@ -91,8 +91,8 @@ const projects = [
     emoji: '🔍',
     title: 'AI-Powered Inspection Tools',
     description:
-      'Developed mobile inspection applications using AI and geospatial analysis for nonprofit enforcement teams. Built predictive models to optimize inspection targeting, resulting in more efficient and impactful operations.',
-    technologies: ['Mobile Development', 'Geospatial Analysis', 'Predictive AI', 'Public Safety'],
+      'Created geospatial mobile apps with predictive AI to support nonprofit enforcement efforts. Enabled smarter deployment of field resources using location clustering, visual overlays, and mobile-first design.',
+    technologies: ['Geospatial Analysis', 'Predictive AI', 'React', 'Mapbox', 'PostgreSQL'],
     links: [
       { label: 'Impact Metrics', href: '#' },
       { label: 'Technical Overview', href: '#' },

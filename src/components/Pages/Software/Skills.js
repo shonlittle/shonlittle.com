@@ -12,22 +12,32 @@ const skillCategories = [
   {
     id: 'programming',
     title: 'Programming & Platforms',
-    skills: ['Python', 'JavaScript', 'TypeScript', 'C#', 'SQL', 'VBA'],
+    skills: ['Python', 'JavaScript', 'TypeScript', 'Java', 'C#', 'SQL', 'Golang'],
   },
   {
     id: 'ai-ml',
     title: 'AI & Machine Learning',
-    skills: ['Generative AI', 'Machine Learning', 'Predictive Analytics', 'Computer Vision', 'NLP', 'Bioinformatics'],
+    skills: [
+      'Generative AI',
+      'Retrieval-Augmented Generation (RAG)',
+      'LangChain',
+      'Pinecone',
+      'OpenAI API',
+      'Machine Learning',
+      'NLP',
+      'Predictive Analytics',
+      'Bioinformatics',
+    ],
   },
   {
     id: 'cloud',
     title: 'Cloud & Infrastructure',
-    skills: ['Azure', 'Event Grid', 'Cosmos DB', 'IoT Hub', 'Docker', 'MQTT'],
+    skills: ['AWS', 'Azure', 'GCP', 'Docker', 'Kubernetes', 'GitHub Actions', 'CircleCI'],
   },
   {
     id: 'enterprise',
     title: 'Enterprise Integration',
-    skills: ['Oracle', 'Vendavo', 'REST APIs', 'AMQP', 'Real-time Systems', 'High Availability'],
+    skills: ['REST APIs', 'GraphQL', 'OAuth 2.0', 'JWT', 'Real-time Systems', 'High Availability'],
   },
   {
     id: 'specialized',
@@ -38,6 +48,7 @@ const skillCategories = [
       'Optimization Algorithms',
       'Geospatial Analysis',
       'Manufacturing Systems',
+      'Healthcare Platforms',
       'Telecommunications',
     ],
   },
@@ -51,6 +62,8 @@ const skillCategories = [
       'Cross-functional Teams',
       'Client Engagement',
       'MVP Development',
+      'Mentorship',
+      'Thought Leadership',
     ],
   },
 ];
