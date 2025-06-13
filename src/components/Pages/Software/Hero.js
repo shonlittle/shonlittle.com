@@ -56,6 +56,7 @@ const Hero = () => {
         width: '100vw',
         maxWidth: '100%',
         padding: 0,
+        paddingTop: '80px', // Increase padding for the navigation bar
         margin: '0 auto',
         left: '50%',
         right: '50%',
