@@ -49,6 +49,7 @@ This project uses [Sentry](https://sentry.io/) for real-time error tracking and 
 - [Sentry for Frontend Monitoring](https://docs.sentry.io/platforms/javascript/)
 - [Best Practices for Frontend Monitoring](https://docs.sentry.io/product/sentry-basics/guides/best-practices/)
 - [Using Sentry with Create React App](https://docs.sentry.io/platforms/javascript/guides/react/configuration/create-react-app/)
+- [Using Formspree for my email contact form](https://formspree.io/)
 
 ## 📝 License
 
