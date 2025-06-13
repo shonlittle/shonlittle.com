@@ -6,7 +6,7 @@
 
 // Add third-party dependencies.
 import { lazy, Suspense } from 'react';
-import { Box, CircularProgress, useMediaQuery } from '@mui/material';
+import { Box, CircularProgress, useMediaQuery, useTheme } from '@mui/material';
 
 // Add local dependencies.
 import Navigation from './Navigation';
@@ -38,7 +38,8 @@ const SectionLoader = () => (
  */
 const Software = () => {
   // Check if screen is mobile using a direct media query
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   // Render component.
   return (
