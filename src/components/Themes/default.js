@@ -89,8 +89,8 @@ const defaultTheme = {
         }
 
         @keyframes typewriterSimple {
-          from { width: 0; }
-          to { width: 100%; }
+          0% { width: 0; }
+          100% { width: 100%; }
         }
 
         @keyframes fadeInUp {
