@@ -35,7 +35,7 @@ const projects = [
     gradient: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
   },
   {
-    id: 'factory-future',
+    id: 'mfg-ai',
     emoji: '🏭',
     title: 'Factory of the Future – MFG.AI',
     description:

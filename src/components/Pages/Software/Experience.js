@@ -11,7 +11,7 @@ import { AccessTime } from '@mui/icons-material';
 // Array of experiences.
 const experiences = [
   {
-    id: 'bcg-manager',
+    id: 'bcg-senior-manager',
     date: '2021 – 2025',
     title: 'Senior Software Engineering Manager',
     company: 'Boston Consulting Group (BCG X)',
