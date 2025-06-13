@@ -54,7 +54,7 @@ const About = () => {
         {/* About Content */}
         <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
           {/* Profile Image Section */}
-          <Grid item xs={12} md={5}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <Box sx={{ position: 'relative', textAlign: 'center' }}>
               {/* Gradient Background Effect */}
               <Box
@@ -119,7 +119,7 @@ const About = () => {
           </Grid>
 
           {/* About Text Section */}
-          <Grid item xs={12} md={7}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Stack spacing={3}>
               <Typography
                 variant="body1"

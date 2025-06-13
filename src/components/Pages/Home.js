@@ -18,8 +18,8 @@ import { Box, Button } from '@mui/material';
  */
 const Home = () => {
   // Set navigation hook.
-
   const navigate = useNavigate();
+
   // Render component.
   return (
     <Box sx={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>

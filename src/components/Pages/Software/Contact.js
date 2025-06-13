@@ -5,8 +5,9 @@
  */
 
 // Add third-party dependencies.
+import { useNavigate } from 'react-router-dom';
 import { Box, Container, Typography, Stack, Button, alpha } from '@mui/material';
-import { GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { GitHub, LinkedIn } from '@mui/icons-material';
 
 // Array of contact links with icons, labels, and URLs.
 const contactLinks = [
@@ -24,13 +25,6 @@ const contactLinks = [
     icon: <LinkedIn sx={{ fontSize: '1.5rem' }} />,
     emoji: '💼',
   },
-  {
-    id: 'email',
-    label: 'Email',
-    href: 'mailto:shon@example.com',
-    icon: <Email sx={{ fontSize: '1.5rem' }} />,
-    emoji: '✉️',
-  },
 ];
 
 /**
@@ -42,6 +36,9 @@ const contactLinks = [
  * @returns {React.ReactElement} component.
  */
 const Contact = () => {
+  // Set navigation hook.
+  const navigate = useNavigate();
+
   // Render component.
   return (
     <Box
@@ -163,6 +160,63 @@ const Contact = () => {
                 {contact.label}
               </Button>
             ))}
+            <Button
+              onClick={() => navigate('/email')}
+              component="a"
+              rel="noopener noreferrer"
+              variant="outlined"
+              size="large"
+              startIcon={
+                <Box
+                  sx={{
+                    fontSize: '1.5rem',
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'scale(1.1) rotate(5deg)',
+                    },
+                  }}
+                >
+                  ✉️
+                </Box>
+              }
+              sx={{
+                px: 4,
+                py: 2,
+                minWidth: { xs: '200px', md: 'auto' },
+                background: alpha('#1a1a1a', 0.7),
+                backdropFilter: 'blur(10px)',
+                border: `1px solid ${alpha('#ffffff', 0.1)}`,
+                borderRadius: 4,
+                color: '#e0e0e0',
+                fontSize: '1rem',
+                fontWeight: 500,
+                textTransform: 'none',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                // Stagger animation delay
+                animation: 'fadeInUp 0.6s ease forwards',
+                animationDelay: `${2 * 0.1}s`,
+                opacity: 0,
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  border: `1px solid ${alpha('#0066cc', 0.5)}`,
+                  backgroundColor: alpha('#1a1a1a', 0.9),
+                  color: '#00d4ff',
+                  boxShadow: `0 8px 24px ${alpha('#0066cc', 0.2)}`,
+                },
+                '@keyframes fadeInUp': {
+                  '0%': {
+                    opacity: 0,
+                    transform: 'translateY(30px)',
+                  },
+                  '100%': {
+                    opacity: 1,
+                    transform: 'translateY(0)',
+                  },
+                },
+              }}
+            >
+              Email
+            </Button>
           </Stack>
         </Box>
       </Container>
