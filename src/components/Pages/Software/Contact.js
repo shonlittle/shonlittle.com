@@ -6,7 +6,7 @@
 
 // Add third-party dependencies.
 import { useNavigate } from 'react-router-dom';
-import { Box, Container, Typography, Stack, Button, alpha } from '@mui/material';
+import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { GitHub, LinkedIn } from '@mui/icons-material';
 
 // Array of contact links with icons, labels, and URLs.
@@ -53,17 +53,10 @@ const Contact = () => {
       <Container maxWidth="md">
         {/* Section Title */}
         <Typography
-          variant="h2"
+          variant="sectionTitle"
           component="h2"
           sx={{
-            textAlign: 'center',
             mb: { xs: 4, md: 6 },
-            fontSize: { xs: '2rem', md: '3rem' },
-            fontWeight: 700,
-            background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
           }}
         >
           Let&apos;s Connect
@@ -106,7 +99,7 @@ const Contact = () => {
                 href={contact.href}
                 target={contact.href.startsWith('mailto:') ? '_self' : '_blank'}
                 rel="noopener noreferrer"
-                variant="outlined"
+                variant="hover"
                 size="large"
                 startIcon={
                   <Box
@@ -125,35 +118,17 @@ const Contact = () => {
                   px: 4,
                   py: 2,
                   minWidth: { xs: '200px', md: 'auto' },
-                  background: alpha('#1a1a1a', 0.7),
-                  backdropFilter: 'blur(10px)',
-                  border: `1px solid ${alpha('#ffffff', 0.1)}`,
-                  borderRadius: 4,
                   color: '#e0e0e0',
                   fontSize: '1rem',
                   fontWeight: 500,
                   textTransform: 'none',
-                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   // Stagger animation delay
                   animation: 'fadeInUp 0.6s ease forwards',
                   animationDelay: `${index * 0.1}s`,
                   opacity: 0,
                   '&:hover': {
                     transform: 'translateY(-4px)',
-                    border: `1px solid ${alpha('#0066cc', 0.5)}`,
-                    backgroundColor: alpha('#1a1a1a', 0.9),
                     color: '#00d4ff',
-                    boxShadow: `0 8px 24px ${alpha('#0066cc', 0.2)}`,
-                  },
-                  '@keyframes fadeInUp': {
-                    '0%': {
-                      opacity: 0,
-                      transform: 'translateY(30px)',
-                    },
-                    '100%': {
-                      opacity: 1,
-                      transform: 'translateY(0)',
-                    },
                   },
                 }}
               >
@@ -164,7 +139,7 @@ const Contact = () => {
               onClick={() => navigate('/email')}
               component="a"
               rel="noopener noreferrer"
-              variant="outlined"
+              variant="hover"
               size="large"
               startIcon={
                 <Box
@@ -183,35 +158,17 @@ const Contact = () => {
                 px: 4,
                 py: 2,
                 minWidth: { xs: '200px', md: 'auto' },
-                background: alpha('#1a1a1a', 0.7),
-                backdropFilter: 'blur(10px)',
-                border: `1px solid ${alpha('#ffffff', 0.1)}`,
-                borderRadius: 4,
                 color: '#e0e0e0',
                 fontSize: '1rem',
                 fontWeight: 500,
                 textTransform: 'none',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 // Stagger animation delay
                 animation: 'fadeInUp 0.6s ease forwards',
                 animationDelay: `${2 * 0.1}s`,
                 opacity: 0,
                 '&:hover': {
                   transform: 'translateY(-4px)',
-                  border: `1px solid ${alpha('#0066cc', 0.5)}`,
-                  backgroundColor: alpha('#1a1a1a', 0.9),
                   color: '#00d4ff',
-                  boxShadow: `0 8px 24px ${alpha('#0066cc', 0.2)}`,
-                },
-                '@keyframes fadeInUp': {
-                  '0%': {
-                    opacity: 0,
-                    transform: 'translateY(30px)',
-                  },
-                  '100%': {
-                    opacity: 1,
-                    transform: 'translateY(0)',
-                  },
                 },
               }}
             >

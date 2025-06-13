@@ -21,15 +21,14 @@ const Footer = () => {
   return (
     <Box
       component="footer"
-      sx={{
-        background: alpha('#1a1a1a', 0.5),
-        backdropFilter: 'blur(10px)',
+      sx={theme => ({
+        ...theme.mixins.glassEffect,
         borderTop: `1px solid ${alpha('#ffffff', 0.1)}`,
         py: 4,
         px: 2,
         position: 'relative',
         zIndex: 10,
-      }}
+      })}
     >
       <Container maxWidth="lg">
         <Box alignItems="center" display="flex" flexDirection="column">

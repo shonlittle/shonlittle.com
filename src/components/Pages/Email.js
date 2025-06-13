@@ -5,7 +5,6 @@
  */
 
 // Add third-party dependencies.
-import { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -51,21 +50,7 @@ const Email = () => {
   // Set navigation hook.
   const navigate = useNavigate();
 
-  // Add CSS animation keyframes
-  useEffect(() => {
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = `
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    `;
-    document.head.appendChild(styleSheet);
-
-    return () => {
-      document.head.removeChild(styleSheet);
-    };
-  }, []);
+  // No longer need to add keyframes as they're in the theme
 
   if (state.succeeded) {
     return (
@@ -104,7 +89,7 @@ const Email = () => {
           </Typography>
           <Button
             onClick={() => navigate('/software')}
-            variant="contained"
+            variant="gradient"
             disabled={state.submitting}
             size="large"
             startIcon={state.submitting ? <CircularProgress size={20} color="inherit" /> : <ArrowBackIcon />}
@@ -112,16 +97,6 @@ const Email = () => {
               mt: 2,
               py: 1.5,
               borderRadius: 2,
-              background: `linear-gradient(45deg, ${theme.palette.success.main} 30%, ${theme.palette.success.light} 90%)`,
-              boxShadow: `0 4px 12px ${alpha(theme.palette.success.main, 0.3)}`,
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                transform: 'translateY(-2px)',
-                boxShadow: `0 6px 16px ${alpha(theme.palette.success.main, 0.4)}`,
-              },
-              '&:active': {
-                transform: 'translateY(0)',
-              },
               '&.Mui-disabled': {
                 background: alpha(theme.palette.action.disabled, 0.3),
               },
@@ -138,26 +113,20 @@ const Email = () => {
     <Container maxWidth="sm" sx={{ my: 4, px: 2 }}>
       <Paper
         elevation={6}
+        variant="hover"
         sx={{
           p: 4,
           borderRadius: 4,
-          background: alpha(theme.palette.background.paper, 0.8),
-          backdropFilter: 'blur(10px)',
-          border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
-          transition: 'all 0.3s ease',
         }}
       >
         <Typography
-          variant="h4"
+          variant="gradient"
           component="h1"
           sx={{
             fontWeight: 600,
             textAlign: 'center',
             mb: 1,
-            background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
+            fontSize: '2rem',
           }}
         >
           Get in Touch
@@ -250,7 +219,7 @@ const Email = () => {
 
           <Button
             type="submit"
-            variant="contained"
+            variant="gradient"
             disabled={state.submitting}
             size="large"
             startIcon={state.submitting ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
@@ -258,16 +227,6 @@ const Email = () => {
               mt: 2,
               py: 1.5,
               borderRadius: 2,
-              background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
-              boxShadow: `0 4px 12px ${alpha(theme.palette.primary.main, 0.3)}`,
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                transform: 'translateY(-2px)',
-                boxShadow: `0 6px 16px ${alpha(theme.palette.primary.main, 0.4)}`,
-              },
-              '&:active': {
-                transform: 'translateY(0)',
-              },
               '&.Mui-disabled': {
                 background: alpha(theme.palette.action.disabled, 0.3),
               },

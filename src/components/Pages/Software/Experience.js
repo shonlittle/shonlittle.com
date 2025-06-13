@@ -11,7 +11,7 @@ import { AccessTime } from '@mui/icons-material';
 // Array of experiences.
 const experiences = [
   {
-    id: 'bcg-manager',
+    id: 'bcg-senior-manager',
     date: '2021 – 2025',
     title: 'Senior Software Engineering Manager',
     company: 'Boston Consulting Group (BCG X)',
@@ -67,20 +67,7 @@ const Experience = () => {
     >
       <Container maxWidth="md">
         {/* Section Title */}
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            textAlign: 'center',
-            mb: { xs: 6, md: 8 },
-            fontSize: { xs: '2rem', md: '3rem' },
-            fontWeight: 700,
-            background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
+        <Typography variant="sectionTitle" component="h2">
           Professional Journey
         </Typography>
 
@@ -145,30 +132,14 @@ const Experience = () => {
               >
                 <Paper
                   elevation={0}
+                  variant="hover"
                   sx={{
                     p: 3,
-                    background: alpha('#1a1a1a', 0.7),
-                    backdropFilter: 'blur(10px)',
-                    border: `1px solid ${alpha('#ffffff', 0.1)}`,
-                    borderRadius: 3,
-                    transition: 'all 0.3s ease',
                     animation: 'fadeInUp 0.6s ease forwards',
                     animationDelay: `${index * 0.3}s`,
                     opacity: 0,
-                    '@keyframes fadeInUp': {
-                      '0%': {
-                        opacity: 0,
-                        transform: 'translateY(30px)',
-                      },
-                      '100%': {
-                        opacity: 1,
-                        transform: 'translateY(0)',
-                      },
-                    },
                     '&:hover': {
                       transform: 'translateY(-4px)',
-                      boxShadow: `0 12px 24px ${alpha('#0066cc', 0.15)}`,
-                      border: `1px solid ${alpha('#0066cc', 0.3)}`,
                     },
                   }}
                 >
@@ -188,16 +159,12 @@ const Experience = () => {
 
                   {/* Title */}
                   <Typography
-                    variant="h6"
+                    variant="gradient"
                     component="h3"
                     sx={{
                       fontWeight: 700,
                       mb: 0.5,
-                      color: '#e0e0e0',
-                      background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
-                      backgroundClip: 'text',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
+                      fontSize: '1.25rem',
                     }}
                   >
                     {exp.title}

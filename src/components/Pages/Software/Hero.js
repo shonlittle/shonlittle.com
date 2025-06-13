@@ -6,7 +6,7 @@
 
 // Add third-party dependencies.
 import { useState } from 'react';
-import { keyframes, Box, Typography, alpha, useTheme, Container, Stack, Button } from '@mui/material';
+import { Box, Typography, alpha, useTheme, Container, Stack, Button } from '@mui/material';
 
 // Add local dependencies.
 import useNavigation from '../../../hooks/useNavigation';
@@ -21,17 +21,6 @@ const codeLines = [
   "  passion: 'Building scalable solutions',",
   '};',
 ];
-
-// Define animations.
-const float = keyframes`
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(1deg); }
-`;
-const typewriter = keyframes`
-  0% { width: 0; }
-  50% { width: 100%; }
-  100% { width: 0; }
-`;
 
 /**
  * Hero component.
@@ -63,7 +52,7 @@ const Hero = () => {
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
-        background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.1)} 100%)`,
+        background: alpha(theme.palette.primary.main, 0.05),
         width: '100vw',
         maxWidth: '100%',
         padding: 0,
@@ -85,9 +74,9 @@ const Hero = () => {
           background: `
             radial-gradient(circle at 20% 50%, ${alpha(theme.palette.primary.main, 0.3)} 0%, transparent 50%),
             radial-gradient(circle at 80% 20%, ${alpha(theme.palette.secondary.main, 0.3)} 0%, transparent 50%),
-            radial-gradient(circle at 40% 80%, ${alpha(theme.palette.error.main, 0.2)} 0%, transparent 50%)
+            radial-gradient(circle at 40% 80%, ${alpha(theme.palette.primary.light, 0.2)} 0%, transparent 50%)
           `,
-          animation: `${float} 20s ease-in-out infinite`,
+          animation: 'float 20s ease-in-out infinite',
         }}
       />
 
@@ -119,7 +108,7 @@ const Hero = () => {
               mb: 1,
               overflow: 'hidden',
               whiteSpace: 'nowrap',
-              animation: `${typewriter} 20s linear infinite`,
+              animation: 'typewriter 20s linear infinite',
               animationDelay: `${index * 0.5}s`,
             }}
           >
@@ -161,16 +150,12 @@ const Hero = () => {
             }}
           >
             <Typography
-              variant="h1"
+              variant="gradient"
               component="h1"
               sx={{
                 fontSize: { xs: '2.5rem', md: '4rem' },
                 fontWeight: 700,
                 mb: 2,
-                background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
                 animation: 'fadeIn 0.8s ease forwards',
               }}
             >
@@ -186,12 +171,6 @@ const Hero = () => {
                 fontSize: { xs: '1.2rem', md: '1.5rem' },
                 animation: 'fadeIn 0.8s ease forwards 0.5s',
                 opacity: 0,
-                '@keyframes fadeIn': {
-                  to: {
-                    opacity: 1,
-                    transform: 'translateY(0)',
-                  },
-                },
                 transform: 'translateY(30px)',
               }}
             >
@@ -232,20 +211,12 @@ const Hero = () => {
               }}
             >
               <Button
-                variant="contained"
+                variant="gradient"
                 size="large"
                 onClick={() => scrollToSection('projects')}
                 sx={{
                   px: 4,
                   py: 1.5,
-                  borderRadius: '50px',
-                  background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-                  boxShadow: `0 4px 15px ${alpha(theme.palette.primary.main, 0.3)}`,
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-2px)',
-                    boxShadow: `0 8px 25px ${alpha(theme.palette.primary.main, 0.4)}`,
-                  },
                 }}
               >
                 View My Work
@@ -258,16 +229,6 @@ const Hero = () => {
                 sx={{
                   px: 4,
                   py: 1.5,
-                  borderRadius: '50px',
-                  borderWidth: 2,
-                  borderColor: theme.palette.primary.main,
-                  color: theme.palette.primary.main,
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-2px)',
-                    backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                    borderWidth: 2,
-                  },
                 }}
               >
                 Get In Touch

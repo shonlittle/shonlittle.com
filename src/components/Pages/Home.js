@@ -36,7 +36,7 @@ const Home = () => {
           position: 'relative',
         }}
       >
-        <Button variant="contained" size="large" onClick={() => navigate('/software')}>
+        <Button variant="gradient" size="large" onClick={() => navigate('/software')}>
           Software Engineering Portfolio
         </Button>
       </Box>
@@ -55,7 +55,7 @@ const Home = () => {
         }}
       >
         <Button
-          variant="contained"
+          variant="gradient"
           size="large"
           href="http://littlearts.com/shon/"
           target="_blank"

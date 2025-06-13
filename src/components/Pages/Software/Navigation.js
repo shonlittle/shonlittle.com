@@ -44,20 +44,16 @@ const Navigation = () => {
     <HideOnScroll>
       <AppBar
         position="fixed"
-        sx={{
-          background: 'rgba(10, 10, 10, 0.95)',
-          backdropFilter: 'blur(10px)',
-          boxShadow: 'none',
+        sx={theme => ({
+          ...theme.mixins.glassEffect,
           paddingY: 1,
-        }}
+        })}
       >
         <Toolbar sx={{ justifyContent: 'space-between', maxWidth: 1200, mx: 'auto', width: '100%' }}>
           <Typography
-            variant="h6"
+            variant="gradient"
+            component="h6"
             sx={{
-              background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
               fontWeight: 700,
             }}
           >
@@ -68,6 +64,7 @@ const Navigation = () => {
               <Button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
+                variant="hover"
                 sx={{
                   color: 'text.secondary',
                   textTransform: 'none',
@@ -76,7 +73,6 @@ const Navigation = () => {
                   position: 'relative',
                   '&:hover': {
                     backgroundColor: 'transparent',
-                    color: 'primary.main',
                   },
                   '&::after': {
                     content: '""',
