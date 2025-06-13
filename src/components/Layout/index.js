@@ -5,11 +5,11 @@
  */
 
 // Add third-party dependencies.
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
 // Add local dependencies.
-import Themes from "../Themes/index.js";
-import Router from "../App/Router";
+import Themes from '../Themes';
+import Router from '../App/Router';
 
 /**
  * Layout component.
@@ -23,10 +23,8 @@ const Layout = () => {
   // Render component.
   return (
     <Themes>
-      <Box
-        sx={{ display: "flex", minHeight: "100vh", flexDirection: "column" }}
-      >
-        <Box component="main" sx={{ display: "flex", flex: 1 }}>
+      <Box sx={{ display: 'flex', minHeight: '100vh', flexDirection: 'column' }}>
+        <Box component="main" sx={{ display: 'flex', flex: 1 }}>
           <Router />
         </Box>
       </Box>

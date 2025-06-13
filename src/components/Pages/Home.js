@@ -5,9 +5,8 @@
  */
 
 // Add third-party dependencies.
-import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
-import { Box, Button } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
+import { Box, Button } from '@mui/material';
 
 /**
  * Home component.
@@ -17,31 +16,27 @@ import { Box, Button } from "@mui/material";
  * )
  * @returns {React.ReactElement} component.
  */
-const Home = ({ title }) => {
+function Home() {
   // Set navigation hook.
 
   const navigate = useNavigate();
   // Render component.
   return (
-    <Box sx={{ height: "100vh", width: "100vw", overflow: "hidden" }}>
+    <Box sx={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
       {/* Software Engineering (Top Half) */}
       <Box
         sx={{
-          height: "50%",
+          height: '50%',
           backgroundImage: 'url("/images/software.png")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "relative",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
         }}
       >
-        <Button
-          variant="contained"
-          size="large"
-          onClick={() => navigate("/software")}
-        >
+        <Button variant="contained" size="large" onClick={() => navigate('/software')}>
           Software Engineering Portfolio
         </Button>
       </Box>
@@ -49,14 +44,14 @@ const Home = ({ title }) => {
       {/* Acting (Bottom Half) */}
       <Box
         sx={{
-          height: "50%",
+          height: '50%',
           backgroundImage: 'url("/images/acting.webp")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "relative",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
         }}
       >
         <Button
@@ -71,17 +66,9 @@ const Home = ({ title }) => {
       </Box>
     </Box>
   );
-};
+}
 
-// Set component property types.
-Home.propTypes = {
-  title: PropTypes.string,
-};
-
-// Set component default properties.
-Home.defaultProps = {
-  title: "Home",
-};
+// No props are used, so propTypes and defaultProps are not needed.
 
 // Export component.
 export default Home;

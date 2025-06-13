@@ -5,13 +5,13 @@
  */
 
 // Add third-party dependencies.
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { Box } from '@mui/material';
 
 // Add local dependencies.
-import store from "./store";
-import Layout from "../Layout";
+import store from './store';
+import Layout from '../Layout';
 
 /**
  * App component.
