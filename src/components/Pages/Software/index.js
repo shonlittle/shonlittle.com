@@ -40,27 +40,19 @@ const Software = () => {
   return (
     <Box sx={{ width: '100%', overflowX: 'hidden' }}>
       <Navigation />
-      <Suspense fallback={<SectionLoader />}>
-        <Hero />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <About />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Skills />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Projects />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Experience />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Contact />
-      </Suspense>
-      <Suspense fallback={<SectionLoader />}>
-        <Footer />
-      </Suspense>
+      {[
+        <Hero key="hero" />,
+        <About key="about" />,
+        <Skills key="skills" />,
+        <Projects key="projects" />,
+        <Experience key="experience" />,
+        <Contact key="contact" />,
+        <Footer key="footer" />,
+      ].map(section => (
+        <Suspense key={section.key} fallback={<SectionLoader />}>
+          {section}
+        </Suspense>
+      ))}
     </Box>
   );
 };
