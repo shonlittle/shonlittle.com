@@ -76,10 +76,21 @@ const defaultTheme = {
           50% { transform: translateY(-20px) rotate(1deg); }
         }
 
+        @keyframes floatSimple {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+
         @keyframes typewriter {
           0% { width: 0; }
           50% { width: 100%; }
           100% { width: 0; }
+        }
+
+        @keyframes typewriterSimple {
+          from { width: 0; }
+          to { width: 100%; }
         }
 
         @keyframes fadeInUp {
