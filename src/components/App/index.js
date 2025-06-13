@@ -12,6 +12,7 @@ import { Box } from '@mui/material';
 // Add local dependencies.
 import store from './store';
 import Layout from '../Layout';
+import InstallPrompt from '../Common/InstallPrompt';
 
 /**
  * App component.
@@ -28,6 +29,7 @@ const App = () => {
       <BrowserRouter>
         <Box>
           <Layout />
+          <InstallPrompt />
         </Box>
       </BrowserRouter>
     </Provider>
