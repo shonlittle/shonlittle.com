@@ -6,7 +6,7 @@
 
 // Add third-party dependencies.
 import { useState, useEffect } from 'react';
-import { Button, Snackbar, Box, Typography, useMediaQuery } from '@mui/material';
+import { Button, Snackbar, Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Download as DownloadIcon, Close as CloseIcon } from '@mui/icons-material';
 
 /**
@@ -24,7 +24,8 @@ const InstallPrompt = () => {
   // State to control visibility of the prompt
   const [showPrompt, setShowPrompt] = useState(false);
   // Check if screen is mobile using a direct media query
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     // Handler for the beforeinstallprompt event
@@ -85,11 +86,11 @@ const InstallPrompt = () => {
         '& .MuiPaper-root': {
           borderRadius: 2,
           padding: 2,
-          background: theme => theme.palette.background.paper,
-          border: theme => `1px solid ${theme.palette.primary.main}`,
+          background: t => t.palette.background.paper,
+          border: t => `1px solid ${t.palette.primary.main}`,
           width: '100%',
           maxWidth: '350px',
-          color: theme => theme.palette.text.primary,
+          color: t => t.palette.text.primary,
         },
       }}
       message={
@@ -99,7 +100,7 @@ const InstallPrompt = () => {
             component="span"
             sx={{
               fontWeight: 'medium',
-              color: theme => theme.palette.text.primary,
+              color: t => t.palette.text.primary,
               fontSize: '1rem',
             }}
           >
