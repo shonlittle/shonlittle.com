@@ -4,8 +4,8 @@
   "description": "Personal site and portfolio for Shon Little – software engineering leader and lifelong actor.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#1976d2",
+  "background_color": "#000000",
+  "theme_color": "#0066cc",
   "icons": [
     {
       "src": "icons/android-chrome-192x192.png",
