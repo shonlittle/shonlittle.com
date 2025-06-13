@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Box, Typography, Slide, useScrollTrigger, AppBar, Toolbar, Button } from '@mui/material';
 
 // Add local dependencies.
-import useNavigation from '../../hooks/useNavigation';
+import useNavigation from '../../../hooks/useNavigation';
 
 /**
  * Component to hide on scroll.
