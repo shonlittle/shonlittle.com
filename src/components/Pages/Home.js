@@ -16,7 +16,7 @@ import { Box, Button } from '@mui/material';
  * )
  * @returns {React.ReactElement} component.
  */
-function Home() {
+const Home = () => {
   // Set navigation hook.
 
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ function Home() {
       </Box>
     </Box>
   );
-}
+};
 
 // No props are used, so propTypes and defaultProps are not needed.
 
