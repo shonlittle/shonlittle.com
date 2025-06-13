@@ -34,20 +34,7 @@ const About = () => {
     >
       <Container maxWidth="lg">
         {/* Section Title */}
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            textAlign: 'center',
-            mb: { xs: 6, md: 8 },
-            fontSize: { xs: '2rem', md: '3rem' },
-            fontWeight: 700,
-            background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
+        <Typography variant="sectionTitle" component="h2">
           About Me
         </Typography>
 
@@ -75,14 +62,12 @@ const About = () => {
               {/* Profile Card */}
               <Paper
                 elevation={0}
+                variant="hover"
                 sx={{
                   position: 'relative',
                   background: alpha(theme.palette.background.paper, 0.7),
-                  backdropFilter: 'blur(10px)',
                   borderRadius: 4,
                   p: 4,
-                  border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-                  transition: 'transform 0.3s ease',
                   '&:hover': {
                     transform: 'scale(1.02)',
                   },
@@ -90,6 +75,7 @@ const About = () => {
               >
                 {/* Profile Avatar */}
                 <Avatar
+                  variant="hover"
                   sx={{
                     width: { xs: 150, md: 200 },
                     height: { xs: 150, md: 200 },
@@ -98,10 +84,6 @@ const About = () => {
                     border: `2px solid ${alpha(theme.palette.divider, 0.1)}`,
                     mx: 'auto',
                     mb: 3,
-                    transition: 'transform 0.3s ease',
-                    '&:hover': {
-                      transform: 'scale(1.05)',
-                    },
                   }}
                 >
                   👨‍💻
