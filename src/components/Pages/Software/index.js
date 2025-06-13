@@ -23,7 +23,7 @@ const Footer = lazy(() => import('./Footer'));
 // Simple loading indicator
 const SectionLoader = () => (
   <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
-    <CircularProgress size={40} />
+    <CircularProgress size={40} aria-label="Loading section" />
   </Box>
 );
 
