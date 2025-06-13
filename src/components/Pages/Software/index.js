@@ -6,10 +6,11 @@
 
 // Add third-party dependencies.
 import { lazy, Suspense } from 'react';
-import { Box, CircularProgress } from '@mui/material';
+import { Box, CircularProgress, useMediaQuery } from '@mui/material';
 
 // Add local dependencies.
 import Navigation from './Navigation';
+import MobileNavigation from './MobileNavigation';
 
 // Lazy load components.
 const Hero = lazy(() => import('./Hero'));
@@ -36,10 +37,13 @@ const SectionLoader = () => (
  * @returns {React.ReactElement} component.
  */
 const Software = () => {
+  // Check if screen is mobile using a direct media query
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   // Render component.
   return (
     <Box sx={{ width: '100%', overflowX: 'hidden' }}>
-      <Navigation />
+      {isMobile ? <MobileNavigation /> : <Navigation />}
       {[
         <Hero key="hero" />,
         <About key="about" />,
