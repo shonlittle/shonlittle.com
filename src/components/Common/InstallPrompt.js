@@ -6,7 +6,7 @@
 
 // Add third-party dependencies.
 import { useState, useEffect } from 'react';
-import { Button, Snackbar, Box, Typography } from '@mui/material';
+import { Button, Snackbar, Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Download as DownloadIcon, Close as CloseIcon } from '@mui/icons-material';
 
 /**
@@ -23,6 +23,9 @@ const InstallPrompt = () => {
   const [installPrompt, setInstallPrompt] = useState(null);
   // State to control visibility of the prompt
   const [showPrompt, setShowPrompt] = useState(false);
+  // Check if screen is mobile using a direct media query
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     // Handler for the beforeinstallprompt event
@@ -77,33 +80,53 @@ const InstallPrompt = () => {
   // Render the component
   return (
     <Snackbar
-      open={showPrompt}
+      open={showPrompt && isMobile}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       sx={{
         '& .MuiPaper-root': {
           borderRadius: 2,
-          padding: 1,
-          background: theme => theme.palette.background.paper,
-          border: theme => `1px solid ${theme.palette.primary.main}`,
-          maxWidth: '90%',
-          width: '400px',
+          padding: 2,
+          background: t => t.palette.background.paper,
+          border: t => `1px solid ${t.palette.primary.main}`,
+          width: '100%',
+          maxWidth: '350px',
+          color: t => t.palette.text.primary,
         },
       }}
       message={
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Typography variant="body1" component="span">
+        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', mb: 1 }}>
+          <Typography
+            variant="body1"
+            component="span"
+            sx={{
+              fontWeight: 'medium',
+              color: t => t.palette.text.primary,
+              fontSize: '1rem',
+            }}
+          >
             Install this app on your device
           </Typography>
         </Box>
       }
       action={
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            width: '100%',
+            mt: 1,
+            gap: 1,
+          }}
+        >
           <Button
             color="inherit"
             size="small"
             onClick={handleDismiss}
             startIcon={<CloseIcon />}
-            sx={{ color: 'text.secondary' }}
+            sx={{
+              color: 'text.secondary',
+              minWidth: '90px',
+            }}
           >
             Not now
           </Button>
@@ -113,7 +136,10 @@ const InstallPrompt = () => {
             onClick={handleInstallClick}
             startIcon={<DownloadIcon />}
             variant="contained"
-            sx={{ borderRadius: 4 }}
+            sx={{
+              borderRadius: 1.5,
+              minWidth: '90px',
+            }}
           >
             Install
           </Button>
