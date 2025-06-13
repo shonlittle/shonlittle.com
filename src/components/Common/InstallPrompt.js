@@ -30,12 +30,15 @@ const InstallPrompt = () => {
   useEffect(() => {
     // Handler for the beforeinstallprompt event
     const handleBeforeInstallPrompt = e => {
-      // Prevent the mini-infobar from appearing on mobile
-      e.preventDefault();
-      // Stash the event so it can be triggered later
-      setInstallPrompt(e);
-      // Show the install prompt
-      setShowPrompt(true);
+      // Only prevent default on mobile devices
+      if (isMobile) {
+        // Prevent the mini-infobar from appearing on mobile
+        e.preventDefault();
+        // Stash the event so it can be triggered later
+        setInstallPrompt(e);
+        // Show the install prompt
+        setShowPrompt(true);
+      }
     };
 
     // Add event listener for beforeinstallprompt event
