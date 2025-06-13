@@ -5,18 +5,7 @@
  */
 
 // Add third-party dependencies.
-import {
-  Box,
-  Container,
-  Typography,
-  Card,
-  CardContent,
-  CardActions,
-  Button,
-  Chip,
-  Avatar,
-  alpha,
-} from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, CardActions, Button, Chip, Avatar } from '@mui/material';
 import { Launch, Code } from '@mui/icons-material';
 
 // Array of projects with details.
@@ -32,7 +21,7 @@ const projects = [
       { label: 'Case Study', href: '#' },
       { label: 'Technical Details', href: '#' },
     ],
-    gradient: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
+    gradient: 'primary',
   },
   {
     id: 'mfg-ai',
@@ -45,7 +34,7 @@ const projects = [
       { label: 'Architecture', href: '#' },
       { label: 'Impact Report', href: '#' },
     ],
-    gradient: 'linear-gradient(135deg, #00d4ff 0%, #0066cc 100%)',
+    gradient: 'secondary',
   },
   {
     id: 'drug-ai',
@@ -58,7 +47,7 @@ const projects = [
       { label: 'Research Paper', href: '#' },
       { label: 'Demo', href: '#' },
     ],
-    gradient: 'linear-gradient(135deg, #f97316 0%, #ef4444 100%)',
+    gradient: 'orange',
   },
   {
     id: 'airline-optimization',
@@ -71,7 +60,7 @@ const projects = [
       { label: 'Algorithm Details', href: '#' },
       { label: 'Case Study', href: '#' },
     ],
-    gradient: 'linear-gradient(135deg, #4ade80 0%, #10b981 100%)',
+    gradient: 'green',
   },
   {
     id: 'manufacturing-api',
@@ -84,7 +73,7 @@ const projects = [
       { label: 'API Docs', href: '#' },
       { label: 'Engineering Overview', href: '#' },
     ],
-    gradient: 'linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%)',
+    gradient: 'purple',
   },
   {
     id: 'inspection-tools',
@@ -97,7 +86,7 @@ const projects = [
       { label: 'Impact Metrics', href: '#' },
       { label: 'Technical Overview', href: '#' },
     ],
-    gradient: 'linear-gradient(135deg, #ef4444 0%, #ec4899 100%)',
+    gradient: 'pink',
   },
 ];
 
@@ -132,20 +121,7 @@ const Projects = () => {
     >
       <Container maxWidth="lg">
         {/* Section Title */}
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            textAlign: 'center',
-            mb: { xs: 6, md: 8 },
-            fontSize: { xs: '2rem', md: '3rem' },
-            fontWeight: 700,
-            background: 'linear-gradient(135deg, #0066cc 0%, #00d4ff 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
+        <Typography variant="sectionTitle" component="h2">
           Featured Projects
         </Typography>
 
@@ -167,42 +143,23 @@ const Projects = () => {
             <Card
               key={project.id}
               elevation={0}
+              variant="hover"
               sx={{
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                background: alpha('#1a1a1a', 0.7),
-                backdropFilter: 'blur(10px)',
-                border: `1px solid ${alpha('#ffffff', 0.1)}`,
-                borderRadius: 3,
                 overflow: 'hidden',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                '&:hover': {
-                  transform: 'translateY(-8px)',
-                  boxShadow: `0 20px 40px ${alpha('#0066cc', 0.2)}`,
-                  border: `1px solid ${alpha('#0066cc', 0.5)}`,
-                },
                 // Stagger animation delay
                 animation: 'fadeInUp 0.6s ease forwards',
                 animationDelay: `${index * 0.2}s`,
                 opacity: 0,
-                '@keyframes fadeInUp': {
-                  '0%': {
-                    opacity: 0,
-                    transform: 'translateY(30px)',
-                  },
-                  '100%': {
-                    opacity: 1,
-                    transform: 'translateY(0)',
-                  },
-                },
               }}
             >
               {/* Project Image/Icon */}
               <Box
-                sx={{
+                sx={theme => ({
                   height: 200,
-                  background: project.gradient,
+                  background: theme.palette.gradients[project.gradient],
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -217,21 +174,23 @@ const Projects = () => {
                     bottom: 0,
                     background: 'rgba(0, 0, 0, 0.1)',
                   },
-                }}
+                })}
               >
                 <Avatar
-                  sx={{
+                  variant="hover"
+                  sx={theme => ({
                     width: 64,
                     height: 64,
                     fontSize: '2rem',
                     backgroundColor: 'transparent',
                     position: 'relative',
                     zIndex: 1,
-                    transition: 'transform 0.3s ease',
+                    ...theme.mixins.hoverTransform,
                     '&:hover': {
+                      ...theme.mixins.hoverTransform['&:hover'],
                       transform: 'scale(1.1) rotate(5deg)',
                     },
-                  }}
+                  })}
                 >
                   {project.emoji}
                 </Avatar>
@@ -242,26 +201,26 @@ const Projects = () => {
                 <Typography
                   variant="h6"
                   component="h3"
-                  sx={{
+                  sx={theme => ({
                     mb: 2,
                     fontWeight: 600,
-                    color: '#e0e0e0',
+                    color: theme.palette.text.primary,
                     transition: 'color 0.3s ease',
                     '&:hover': {
-                      color: '#00d4ff',
+                      color: theme.palette.secondary.main,
                     },
-                  }}
+                  })}
                 >
                   {project.title}
                 </Typography>
 
                 <Typography
                   variant="body2"
-                  sx={{
+                  sx={theme => ({
                     mb: 3,
-                    color: '#a0a0a0',
+                    color: theme.palette.text.secondary,
                     lineHeight: 1.6,
-                  }}
+                  })}
                 >
                   {project.description}
                 </Typography>
@@ -272,19 +231,11 @@ const Projects = () => {
                     <Chip
                       key={tech}
                       label={tech}
+                      color="secondary"
+                      variant="skill"
                       size="small"
                       sx={{
-                        backgroundColor: alpha('#f97316', 0.2),
-                        borderColor: alpha('#f97316', 0.3),
-                        color: '#fb923c',
                         fontSize: '0.75rem',
-                        fontWeight: 500,
-                        border: `1px solid ${alpha('#f97316', 0.3)}`,
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                          backgroundColor: alpha('#f97316', 0.3),
-                          transform: 'scale(1.05)',
-                        },
                       }}
                     />
                   ))}
@@ -303,15 +254,7 @@ const Projects = () => {
                       onClick={() => handleProjectAction(link.label.toLowerCase(), project.id)}
                       sx={{
                         flex: 1,
-                        borderColor: '#0066cc',
-                        color: '#60a5fa',
                         fontSize: '0.875rem',
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                          backgroundColor: alpha('#0066cc', 0.1),
-                          borderColor: '#0066cc',
-                          transform: 'translateY(-1px)',
-                        },
                       }}
                     >
                       {link.label}
