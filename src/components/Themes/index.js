@@ -5,11 +5,11 @@
  */
 
 // Add third-party dependencies.
-import PropTypes from "prop-types";
-import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
+import PropTypes from 'prop-types';
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 
 // Add local dependencies.
-import defaultTheme from "./default";
+import defaultTheme from './default';
 
 // Create theme.
 const appliedTheme = createTheme(defaultTheme);

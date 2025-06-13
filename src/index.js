@@ -5,14 +5,14 @@
  */
 
 // Add third-party dependencies.
-import React from "react";
-import ReactDOM from "react-dom/client";
-import * as Sentry from "@sentry/react";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import * as Sentry from '@sentry/react';
 
 // Add local dependencies.
-import reportWebVitals from "./reportWebVitals";
-import App from "./components/App";
-import ErrorBoundary from "./components/Common/ErrorBoundary";
+import reportWebVitals from './reportWebVitals';
+import App from './components/App';
+import ErrorBoundary from './components/Common/ErrorBoundary';
 
 // Add sentry configuration.
 Sentry.init({
@@ -23,19 +23,23 @@ Sentry.init({
 });
 
 // Create the root.
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 // Render the root.
 root.render(
   <React.StrictMode>
-    <ErrorBoundary fallback={<p>Something went wrong.</p>}>
+    {process.env.NODE_ENV === 'production' ? (
+      <ErrorBoundary fallback={<p>Something went wrong.</p>}>
+        <App />
+      </ErrorBoundary>
+    ) : (
       <App />
-    </ErrorBoundary>
+    )}
   </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   reportWebVitals();
 }

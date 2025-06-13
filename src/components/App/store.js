@@ -5,11 +5,19 @@
  */
 
 // Add third-party dependencies.
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
+
+// Create a dummy reducer
+// eslint-disable-next-line no-unused-vars
+const dummyReducer = (state = {}) => {
+  return state;
+};
 
 // Create the store.
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    dummy: dummyReducer,
+  },
 });
 
 // Export the store.
