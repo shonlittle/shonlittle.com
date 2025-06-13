@@ -125,6 +125,221 @@ const Projects = () => {
           Featured Projects
         </Typography>
 
+        {/* Director.exe Video Collection */}
+        <Box sx={{ mb: 6 }}>
+          <Typography
+            variant="h4"
+            component="h3"
+            sx={{
+              mb: 2,
+              textAlign: 'center',
+              fontWeight: 600,
+              background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Director.exe - AI Film Project
+          </Typography>
+
+          <Typography
+            variant="body1"
+            sx={{
+              mb: 4,
+              textAlign: 'center',
+              maxWidth: '800px',
+              mx: 'auto',
+              color: 'text.secondary',
+              lineHeight: 1.6,
+            }}
+          >
+            A fully AI-crafted narrative comedy about an artificial director losing control of its own dramatic
+            masterpiece. Built using a suite of generative tools including ChatGPT, Runway, Leonardo.ai, ElevenLabs,
+            and Suno. This project showcases my ability to integrate cutting-edge AI technologies across storytelling,
+            media production, and user experience — with a healthy dose of humor and glitch.
+          </Typography>
+
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: '1fr',
+                md: 'repeat(3, 1fr)',
+              },
+              gap: { xs: 3, md: 4 },
+              mb: 4,
+            }}
+          >
+            {/* Trailer */}
+            <Card
+              elevation={0}
+              variant="hover"
+              sx={{
+                overflow: 'hidden',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  position: 'relative',
+                  paddingTop: '56.25%', // 16:9 aspect ratio
+                  overflow: 'hidden',
+                }}
+              >
+                <Box
+                  component="iframe"
+                  src="https://www.youtube.com/embed/OfLvQSROk1M"
+                  title="Director.exe Trailer"
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                  }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </Box>
+              <CardContent sx={{ p: 2 }}>
+                <Typography variant="h6" component="h4" sx={{ fontWeight: 600, mb: 1 }}>
+                  🎬 Trailer
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Get a glimpse of the AI director&apos;s chaotic journey
+                </Typography>
+              </CardContent>
+            </Card>
+
+            {/* Main Film */}
+            <Card
+              elevation={0}
+              variant="hover"
+              sx={{
+                overflow: 'hidden',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  position: 'relative',
+                  paddingTop: '56.25%', // 16:9 aspect ratio
+                  overflow: 'hidden',
+                }}
+              >
+                <Box
+                  component="iframe"
+                  src="https://www.youtube.com/embed/U3JAt9uH7zE"
+                  title="Director.exe Short Film"
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                  }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </Box>
+              <CardContent sx={{ p: 2 }}>
+                <Typography variant="h6" component="h4" sx={{ fontWeight: 600, mb: 1 }}>
+                  🎭 Full Film
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  The complete AI-generated narrative comedy
+                </Typography>
+              </CardContent>
+            </Card>
+
+            {/* Blooper Reel */}
+            <Card
+              elevation={0}
+              variant="hover"
+              sx={{
+                overflow: 'hidden',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-4px)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  position: 'relative',
+                  paddingTop: '56.25%', // 16:9 aspect ratio
+                  overflow: 'hidden',
+                }}
+              >
+                <Box
+                  component="iframe"
+                  src="https://www.youtube.com/embed/kVoPYgHj6Oc"
+                  title="Director.exe Blooper Reel"
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                  }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </Box>
+              <CardContent sx={{ p: 2 }}>
+                <Typography variant="h6" component="h4" sx={{ fontWeight: 600, mb: 1 }}>
+                  😂 Bloopers
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Behind-the-scenes AI glitches and outtakes
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+
+          {/* Technology Stack for this project */}
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
+              AI Tools Used:
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center' }}>
+              {['ChatGPT', 'Runway', 'Leonardo.ai', 'ElevenLabs', 'Suno'].map(tool => (
+                <Chip
+                  key={tool}
+                  label={tool}
+                  color="primary"
+                  variant="outlined"
+                  size="small"
+                  sx={{
+                    fontSize: '0.75rem',
+                    '&:hover': {
+                      backgroundColor: 'primary.main',
+                      color: 'primary.contrastText',
+                    },
+                  }}
+                />
+              ))}
+            </Box>
+          </Box>
+        </Box>
+
+        <Typography variant="sectionTitle" component="h2">
+          Software Projects
+        </Typography>
+
         {/* Projects Grid - Force 3 columns layout */}
         <Box
           sx={{
