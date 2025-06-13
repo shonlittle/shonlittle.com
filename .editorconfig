@@ -21,7 +21,7 @@ indent_style = space
 indent_size = 2
 
 # Markdown files
-[*.{md,markdonw}]
+[*.{md,markdown}]
 trim_trailing_whitespace = false
 
 # Minified JavaScript files
