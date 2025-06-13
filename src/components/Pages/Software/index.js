@@ -5,17 +5,27 @@
  */
 
 // Add third-party dependencies.
-import { Box } from '@mui/material';
+import { lazy, Suspense } from 'react';
+import { Box, CircularProgress } from '@mui/material';
 
 // Add local dependencies.
 import Navigation from './Navigation';
-import Hero from './Hero';
-import About from './About';
-import Skills from './Skills';
-import Projects from './Projects';
-import Experience from './Experience';
-import Contact from './Contact';
-import Footer from './Footer';
+
+// Lazy load components.
+const Hero = lazy(() => import('./Hero'));
+const About = lazy(() => import('./About'));
+const Skills = lazy(() => import('./Skills'));
+const Projects = lazy(() => import('./Projects'));
+const Experience = lazy(() => import('./Experience'));
+const Contact = lazy(() => import('./Contact'));
+const Footer = lazy(() => import('./Footer'));
+
+// Simple loading indicator
+const SectionLoader = () => (
+  <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
+    <CircularProgress size={40} aria-label="Loading section" />
+  </Box>
+);
 
 /**
  * Software component.
@@ -30,13 +40,19 @@ const Software = () => {
   return (
     <Box sx={{ width: '100%', overflowX: 'hidden' }}>
       <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
-      <Footer />
+      {[
+        <Hero key="hero" />,
+        <About key="about" />,
+        <Skills key="skills" />,
+        <Projects key="projects" />,
+        <Experience key="experience" />,
+        <Contact key="contact" />,
+        <Footer key="footer" />,
+      ].map(section => (
+        <Suspense key={section.key} fallback={<SectionLoader />}>
+          {section}
+        </Suspense>
+      ))}
     </Box>
   );
 };
