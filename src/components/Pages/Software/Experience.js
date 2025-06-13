@@ -12,27 +12,35 @@ import { AccessTime } from '@mui/icons-material';
 const experiences = [
   {
     id: 'bcg-manager',
-    date: '2023 - Present',
-    title: 'Software Engineering Manager',
-    company: 'Boston Consulting Group',
+    date: '2021 – 2025',
+    title: 'Senior Software Engineering Manager',
+    company: 'Boston Consulting Group (BCG X)',
     description:
-      'Leading cross-functional development teams to deliver innovative software solutions for Fortune 500 clients. Driving technical strategy and architecture decisions while mentoring junior developers and fostering a culture of continuous learning and excellence.',
+      'Led global software engineering teams to deliver enterprise AI solutions across telecom, manufacturing, and healthcare. Directed product architecture, mentored engineers, and built scalable platforms using GenAI, cloud-native stacks, and modern development practices.',
   },
   {
-    id: 'senior-engineer',
-    date: '2020 - 2023',
-    title: 'Senior Software Engineer',
-    company: 'Tech Consulting Firm',
+    id: 'bcg-lead',
+    date: '2011 – 2021',
+    title: 'Lead Software Engineer',
+    company: 'Boston Consulting Group (BCG Gamma)',
     description:
-      'Architected and developed scalable web applications using modern JavaScript frameworks. Collaborated with stakeholders to translate business requirements into technical solutions and implemented best practices for code quality and testing.',
+      'Architected and developed AI-powered enterprise applications for Fortune 500 clients. Delivered MVPs, scaled proprietary tools, and led Agile engineering teams on digital transformation initiatives in aviation, pharma, and logistics.',
   },
   {
-    id: 'fullstack-dev',
-    date: '2018 - 2020',
-    title: 'Full Stack Developer',
-    company: 'Software Development Agency',
+    id: 'releve-director',
+    date: '2007 – Present',
+    title: 'Director of Software Engineering (Part-Time)',
+    company: 'Relevé Studios',
     description:
-      'Built end-to-end web applications for diverse clients across multiple industries. Gained expertise in both frontend and backend technologies while working in an agile development environment.',
+      'Designed and maintained custom software systems for studio operations, including scheduling, billing, and CRM integrations. Applied full-stack engineering and cloud infrastructure to support business growth.',
+  },
+  {
+    id: 'dsoa-coach',
+    date: '2025 – Present',
+    title: 'AI Expert Coach (Part-Time)',
+    company: 'Dance Studio Owners Association',
+    description:
+      'Coach studio owners on practical AI adoption, creating custom toolkits and educational sessions to bridge the gap between emerging AI technologies and small business applications.',
   },
 ];
 
