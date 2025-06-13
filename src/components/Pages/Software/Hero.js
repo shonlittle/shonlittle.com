@@ -76,7 +76,7 @@ const Hero = () => {
             radial-gradient(circle at 80% 20%, ${alpha(theme.palette.secondary.main, 0.3)} 0%, transparent 50%),
             radial-gradient(circle at 40% 80%, ${alpha(theme.palette.primary.light, 0.2)} 0%, transparent 50%)
           `,
-          animation: 'float 20s ease-in-out infinite',
+          animation: 'floatSimple 20s ease-in-out infinite',
         }}
       />
 
@@ -108,7 +108,7 @@ const Hero = () => {
               mb: 1,
               overflow: 'hidden',
               whiteSpace: 'nowrap',
-              animation: 'typewriter 20s linear infinite',
+              animation: 'typewriterSimple 20s steps(20, end) infinite',
               animationDelay: `${index * 0.5}s`,
             }}
           >
