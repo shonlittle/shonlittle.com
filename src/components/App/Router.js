@@ -10,6 +10,7 @@ import { Routes, Route } from 'react-router-dom';
 // Add local dependencies.
 import Home from '../Pages/Home';
 import Software from '../Pages/Software';
+import Email from '../Pages/Email';
 
 /**
  * Router component.
@@ -25,6 +26,7 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/software" element={<Software />} />
+      <Route path="/email" element={<Email />} />
     </Routes>
   );
 };
