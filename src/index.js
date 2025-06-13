@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom/client';
 import * as Sentry from '@sentry/react';
 
 // Add local dependencies.
+import serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import App from './components/App';
 import ErrorBoundary from './components/Common/ErrorBoundary';
@@ -42,4 +43,6 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 if (process.env.NODE_ENV === 'production') {
   reportWebVitals();
+  // Register the service worker in production
+  serviceWorkerRegistration();
 }
