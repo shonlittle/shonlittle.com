@@ -8,6 +8,9 @@
 import { Box, Container, Typography, Grid, Paper, alpha, Avatar, Stack, useTheme } from '@mui/material';
 import { LocationOn } from '@mui/icons-material';
 
+// Add local dependencies.
+import shonLittle from '../../../assets/images/shon-little.png';
+
 /**
  * About component.
  * @example
@@ -75,6 +78,8 @@ const About = () => {
               >
                 {/* Profile Avatar */}
                 <Avatar
+                  src={shonLittle}
+                  alt="Shon Little"
                   variant="hover"
                   sx={{
                     width: { xs: 150, md: 200 },
@@ -85,9 +90,7 @@ const About = () => {
                     mx: 'auto',
                     mb: 3,
                   }}
-                >
-                  👨‍💻
-                </Avatar>
+                />
 
                 {/* Location */}
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
