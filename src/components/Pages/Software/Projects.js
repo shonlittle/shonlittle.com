@@ -390,6 +390,7 @@ const Projects = () => {
                   component="img"
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   sx={theme => ({
                     width: '100%',
                     height: '100%',
@@ -412,7 +413,7 @@ const Projects = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: `linear-gradient(45deg, ${theme.palette.gradients[project.gradient]})`,
+                    background: `linear-gradient(45deg, ${theme.palette.gradients[project.gradient ?? 'default']})`,
                     opacity: 0,
                     transition: 'opacity 0.3s ease',
                     zIndex: 2,
