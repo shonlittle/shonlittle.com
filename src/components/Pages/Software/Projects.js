@@ -195,7 +195,7 @@ const Projects = () => {
                 fontSize: '0.9rem',
               }}
             >
-              *Official Selection – Artificial Intelligence Media Festival (AIMF)*
+              Official Selection – Artificial Intelligence Media Festival (AIMF)
             </Typography>
           </Box>
 
