@@ -15,6 +15,7 @@ import drug from '../../../assets/images/drug.png';
 import airline from '../../../assets/images/airline.png';
 import dashboard from '../../../assets/images/dashboard.png';
 import inspection from '../../../assets/images/inspection.png';
+import aimfOfficialSelection from '../../../assets/images/aimf-official-selection.png';
 
 // Array of projects with details.
 const projects = [
@@ -167,6 +168,36 @@ const Projects = () => {
             and Suno. This project showcases my ability to integrate cutting-edge AI technologies across storytelling,
             media production, and user experience — with a healthy dose of humor and glitch.
           </Typography>
+
+          {/* AIMF Official Selection Image and Text */}
+          <Box sx={{ textAlign: 'center', mb: 4 }}>
+            <Box
+              component="img"
+              src={aimfOfficialSelection}
+              alt="AIMF Official Selection"
+              sx={{
+                maxWidth: '300px',
+                width: '100%',
+                height: 'auto',
+                mx: 'auto',
+                mb: 2,
+                transition: 'transform 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.05)',
+                },
+              }}
+            />
+            <Typography
+              variant="body2"
+              sx={{
+                fontStyle: 'italic',
+                color: 'text.secondary',
+                fontSize: '0.9rem',
+              }}
+            >
+              *Official Selection – Artificial Intelligence Media Festival (AIMF)*
+            </Typography>
+          </Box>
 
           <Box
             sx={{
