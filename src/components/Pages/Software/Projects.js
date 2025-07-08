@@ -5,7 +5,7 @@
  */
 
 // Add third-party dependencies.
-import { Box, Container, Typography, Card, CardContent, CardActions, Button, Chip } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, CardActions, Button, Chip, Stack } from '@mui/material';
 import { Launch, Code } from '@mui/icons-material';
 
 // add local dependencies.
@@ -16,6 +16,8 @@ import airline from '../../../assets/images/airline.png';
 import dashboard from '../../../assets/images/dashboard.png';
 import inspection from '../../../assets/images/inspection.png';
 import aimfOfficialSelection from '../../../assets/images/aimf-official-selection.png';
+import pixelMindsOffcialSelection from '../../../assets/images/pixel-minds-official-selection.png';
+import tziffSemiFinalist from '../../../assets/images/tziff-semi-finalist.png';
 
 // Array of projects with details.
 const projects = [
@@ -170,34 +172,98 @@ const Projects = () => {
           </Typography>
 
           {/* AIMF Official Selection Image and Text */}
-          <Box sx={{ textAlign: 'center', mb: 4 }}>
-            <Box
-              component="img"
-              src={aimfOfficialSelection}
-              alt="AIMF Official Selection"
-              sx={{
-                maxWidth: '300px',
-                width: '100%',
-                height: 'auto',
-                mx: 'auto',
-                mb: 2,
-                transition: 'transform 0.3s ease',
-                '&:hover': {
-                  transform: 'scale(1.05)',
-                },
-              }}
-            />
-            <Typography
-              variant="body2"
-              sx={{
-                fontStyle: 'italic',
-                color: 'text.secondary',
-                fontSize: '0.9rem',
-              }}
-            >
-              Official Selection – Artificial Intelligence Media Festival (AIMF)
-            </Typography>
-          </Box>
+          <Stack direction="row" spacing={4} justifyContent="center">
+            <Box sx={{ textAlign: 'center', mb: 4 }}>
+              <Box
+                component="img"
+                src={tziffSemiFinalist}
+                alt="TZIFF Semi-Finalist"
+                sx={{
+                  maxWidth: '300px',
+                  width: '100%',
+                  height: 'auto',
+                  mx: 'auto',
+                  mb: 2,
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontStyle: 'italic',
+                  color: 'text.secondary',
+                  fontSize: '0.9rem',
+                }}
+              >
+                Semi-Finalist – Tarzana International
+                <br />
+                Film Festival (TZIFF)
+              </Typography>
+            </Box>
+            <Box sx={{ textAlign: 'center', mb: 4 }}>
+              <Box
+                component="img"
+                src={aimfOfficialSelection}
+                alt="AIMF Official Selection"
+                sx={{
+                  maxWidth: '300px',
+                  width: '100%',
+                  height: 'auto',
+                  mx: 'auto',
+                  mb: 2,
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontStyle: 'italic',
+                  color: 'text.secondary',
+                  fontSize: '0.9rem',
+                }}
+              >
+                Official Selection – Artificial Intelligence
+                <br />
+                Media Festival (AIMF)
+              </Typography>
+            </Box>
+            <Box sx={{ textAlign: 'center', mb: 4 }}>
+              <Box
+                component="img"
+                src={pixelMindsOffcialSelection}
+                alt="Pixel Minds Official Selection"
+                sx={{
+                  maxWidth: '300px',
+                  width: '100%',
+                  height: 'auto',
+                  mx: 'auto',
+                  mb: 2,
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontStyle: 'italic',
+                  color: 'text.secondary',
+                  fontSize: '0.9rem',
+                }}
+              >
+                Official Selection – Pixel Minds
+                <br />
+                Film Festival
+              </Typography>
+            </Box>
+          </Stack>
 
           <Box
             sx={{
@@ -232,7 +298,7 @@ const Projects = () => {
               >
                 <Box
                   component="iframe"
-                  src="https://www.youtube.com/embed/OfLvQSROk1M"
+                  src="https://www.youtube.com/embed/-5IgNCo7sAo"
                   title="Director.exe Trailer"
                   sx={{
                     position: 'absolute',
