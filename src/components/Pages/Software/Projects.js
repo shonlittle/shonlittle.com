@@ -15,9 +15,10 @@ import drug from '../../../assets/images/drug.png';
 import airline from '../../../assets/images/airline.png';
 import dashboard from '../../../assets/images/dashboard.png';
 import inspection from '../../../assets/images/inspection.png';
-import aimfOfficialSelection from '../../../assets/images/aimf-official-selection.png';
-import pixelMindsOffcialSelection from '../../../assets/images/pixel-minds-official-selection.png';
-import tziffSemiFinalist from '../../../assets/images/tziff-semi-finalist.png';
+import laurelsAimf from '../../../assets/images/laurels-aimf.png';
+import laurelsPixelMinds from '../../../assets/images/laurels-pixel-minds.png';
+import laurelsScff from '../../../assets/images/laurels-scff.png';
+import laurelsTziff from '../../../assets/images/laurels-tziff.png';
 
 // Array of projects with details.
 const projects = [
@@ -172,14 +173,20 @@ const Projects = () => {
           </Typography>
 
           {/* AIMF Official Selection Image and Text */}
-          <Stack direction="row" spacing={4} justifyContent="center">
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 2, sm: 4 }}
+            justifyContent="center"
+            alignItems="center"
+            sx={{ mb: 4 }}
+          >
+            <Box sx={{ textAlign: 'center' }}>
               <Box
                 component="img"
-                src={tziffSemiFinalist}
+                src={laurelsTziff}
                 alt="TZIFF Semi-Finalist"
                 sx={{
-                  maxWidth: '300px',
+                  maxWidth: '200px',
                   width: '100%',
                   height: 'auto',
                   mx: 'auto',
@@ -195,7 +202,7 @@ const Projects = () => {
                 sx={{
                   fontStyle: 'italic',
                   color: 'text.secondary',
-                  fontSize: '0.9rem',
+                  fontSize: '0.8rem',
                 }}
               >
                 Semi-Finalist – Tarzana International
@@ -203,13 +210,13 @@ const Projects = () => {
                 Film Festival (TZIFF)
               </Typography>
             </Box>
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
+            <Box sx={{ textAlign: 'center' }}>
               <Box
                 component="img"
-                src={aimfOfficialSelection}
+                src={laurelsAimf}
                 alt="AIMF Official Selection"
                 sx={{
-                  maxWidth: '300px',
+                  maxWidth: '200px',
                   width: '100%',
                   height: 'auto',
                   mx: 'auto',
@@ -225,21 +232,21 @@ const Projects = () => {
                 sx={{
                   fontStyle: 'italic',
                   color: 'text.secondary',
-                  fontSize: '0.9rem',
+                  fontSize: '0.8rem',
                 }}
               >
-                Official Selection – Artificial Intelligence
+                Semi-Finalist – Artificial Intelligence
                 <br />
                 Media Festival (AIMF)
               </Typography>
             </Box>
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
+            <Box sx={{ textAlign: 'center' }}>
               <Box
                 component="img"
-                src={pixelMindsOffcialSelection}
+                src={laurelsPixelMinds}
                 alt="Pixel Minds Official Selection"
                 sx={{
-                  maxWidth: '300px',
+                  maxWidth: '200px',
                   width: '100%',
                   height: 'auto',
                   mx: 'auto',
@@ -255,12 +262,42 @@ const Projects = () => {
                 sx={{
                   fontStyle: 'italic',
                   color: 'text.secondary',
-                  fontSize: '0.9rem',
+                  fontSize: '0.8rem',
                 }}
               >
                 Official Selection – Pixel Minds
                 <br />
                 Film Festival
+              </Typography>
+            </Box>
+            <Box sx={{ textAlign: 'center' }}>
+              <Box
+                component="img"
+                src={laurelsScff}
+                alt="Studio City Film Festival Official Selection"
+                sx={{
+                  maxWidth: '200px',
+                  width: '100%',
+                  height: 'auto',
+                  mx: 'auto',
+                  mb: 2,
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                }}
+              />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontStyle: 'italic',
+                  color: 'text.secondary',
+                  fontSize: '0.8rem',
+                }}
+              >
+                Official Selection – Studio City
+                <br />
+                International Film & TV Festival
               </Typography>
             </Box>
           </Stack>
