@@ -15,8 +15,8 @@ import useNavigation from '../../../hooks/useNavigation';
 const codeLines = [
   'const softwareEngineer = {',
   "  name: 'Shon Little',",
-  "  role: 'Software Engineering Manager',",
-  "  company: 'Boston Consulting Group',",
+  "  role: 'Principal Forward Deployed Engineer',",
+  "  company: 'Galatiq',",
   "  location: 'Los Angeles, CA',",
   "  passion: 'Building scalable solutions',",
   '};',
@@ -175,7 +175,7 @@ const Hero = () => {
                 transform: 'translateY(30px)',
               }}
             >
-              Senior Software Engineering Leader <br /> AI Platform Innovator <br /> Scalable Systems Architect
+              Principal Forward Deployed Engineer <br /> Agentic AI <br /> Hands-On Engineering Leader
             </Typography>
 
             <Typography
@@ -193,12 +193,13 @@ const Hero = () => {
                 transform: 'translateY(30px)',
               }}
             >
-              I build enterprise-scale AI platforms that transform industries. As a Senior Engineering Manager at BCG,
-              I led global teams in designing and delivering solutions across generative AI, digital twins, and
-              real-time analytics—driving measurable business outcomes for Fortune 500 clients. From
-              Retrieval-Augmented Generation (RAG) chatbots to defect logging systems embedded in manufacturing AI
-              suites, my work turns cutting-edge technology into scalable, market-ready products. I bring a deep focus
-              on technical excellence, mentorship, and strategic alignment between engineering and business goals.
+              I&apos;m a hands-on AI engineer and engineering leader who turns business challenges into
+              production-ready solutions. As a Principal Forward Deployed Engineer at Galatiq, I lead end-to-end
+              delivery of enterprise AI agents and applications—architecting agentic workflows, tool orchestration, and
+              evaluation frameworks, and taking them from rapid prototype to scalable production. I specialize in
+              Python, agentic AI, multi-agent orchestration, Retrieval-Augmented Generation (RAG), and full-stack
+              development. Before that, I spent over a decade at BCG leading global engineering teams for Fortune 500
+              clients and serving as BCG X&apos;s Global Topic Lead for Rapid Prototyping.
             </Typography>
 
             <Stack
