@@ -5,8 +5,7 @@
  */
 
 // Add third-party dependencies.
-import { Box, Container, Typography, Card, CardContent, CardActions, Button, Chip, Stack } from '@mui/material';
-import { Launch, Code } from '@mui/icons-material';
+import { Box, Container, Typography, Card, CardContent, Chip, Stack } from '@mui/material';
 
 // add local dependencies.
 import deep from '../../../assets/images/deep.png';
@@ -27,12 +26,8 @@ const projects = [
     image: deep,
     title: 'DEEP.AI Platform Implementation',
     description:
-      "Led the deployment of BCG's generative AI customer management platform for telecom and B2B clients. Boosted upselling and retention using Retrieval-Augmented Generation (RAG), real-time customer analytics, and LLM-driven insights.",
-    technologies: ['RAG', 'Generative AI', 'LangChain', 'OpenAI API', 'Customer Analytics'],
-    links: [
-      { label: 'Case Study', href: '#' },
-      { label: 'Technical Details', href: '#' },
-    ],
+      "Led the deployment of BCG's generative AI customer management platform for telecom and B2B clients. Shipped production-grade Retrieval-Augmented Generation (RAG) chatbot agents with React, FastAPI, LangChain, and Pinecone to boost upselling and retention through real-time customer analytics and LLM-driven insights.",
+    technologies: ['RAG', 'Generative AI', 'LangChain', 'OpenAI API', 'Pinecone'],
     gradient: 'primary',
   },
   {
@@ -40,12 +35,8 @@ const projects = [
     image: mfg,
     title: 'Factory of the Future – MFG.AI',
     description:
-      'Modernized operations for manufacturing clients with IoT sensors, digital twins, and AI-powered defect logging. Integrated edge computing with GCP-hosted FastAPI services and React dashboards for predictive maintenance and analytics.',
+      "Modernized operations for manufacturing clients with IoT sensors, digital twins, and real-time defect logging automation that cut manual QA time by 50% and became part of BCG's Manufacturing AI suite. Integrated edge computing with GCP-hosted FastAPI services and React dashboards for predictive maintenance and analytics.",
     technologies: ['Digital Twin', 'Edge Computing', 'IoT', 'FastAPI', 'GCP'],
-    links: [
-      { label: 'Architecture', href: '#' },
-      { label: 'Impact Report', href: '#' },
-    ],
     gradient: 'secondary',
   },
   {
@@ -53,12 +44,8 @@ const projects = [
     image: drug,
     title: 'DRUG.AI – Pharma Discovery Platform',
     description:
-      'Designed and deployed an AI-powered analytics tool for drug repurposing. Used graph traversal, NLP, and real-time filters to reveal gene-disease relationships, accelerating pharma research across enterprise and academic users.',
+      'Built and deployed an AI-powered analytics platform for drug repurposing that reduced research turnaround time by ~32%. Normalized evolving pharma R&D data schemas into a unified model and used graph traversal, NLP, and real-time filters to reveal gene-disease relationships.',
     technologies: ['AI/ML', 'Bioinformatics', 'Graph Analytics', 'Spring Boot', 'PostgreSQL'],
-    links: [
-      { label: 'Research Paper', href: '#' },
-      { label: 'Demo', href: '#' },
-    ],
     gradient: 'orange',
   },
   {
@@ -68,10 +55,6 @@ const projects = [
     description:
       'Built a real-time rerouting engine for a major EU airline to handle flight disruptions. Delivered a working MVP in under a week using Python, D3.js, and optimization algorithms—mitigating losses during high-impact operational events.',
     technologies: ['Python', 'D3.js', 'Optimization Algorithms', 'Real-time Systems', 'Azure'],
-    links: [
-      { label: 'Algorithm Details', href: '#' },
-      { label: 'Case Study', href: '#' },
-    ],
     gradient: 'green',
   },
   {
@@ -81,10 +64,6 @@ const projects = [
     description:
       'Led architecture and development of reusable microservices for manufacturing workflows. Designed scalable, low-latency APIs with FastAPI and PostgreSQL, integrated into larger suite of tools to support global deployment.',
     technologies: ['FastAPI', 'PostgreSQL', 'Microservices', 'Kubernetes', 'CI/CD'],
-    links: [
-      { label: 'API Docs', href: '#' },
-      { label: 'Engineering Overview', href: '#' },
-    ],
     gradient: 'purple',
   },
   {
@@ -94,22 +73,9 @@ const projects = [
     description:
       'Created geospatial mobile apps with predictive AI to support nonprofit enforcement efforts. Enabled smarter deployment of field resources using location clustering, visual overlays, and mobile-first design.',
     technologies: ['Geospatial Analysis', 'Predictive AI', 'React', 'Mapbox', 'PostgreSQL'],
-    links: [
-      { label: 'Impact Metrics', href: '#' },
-      { label: 'Technical Overview', href: '#' },
-    ],
     gradient: 'pink',
   },
 ];
-
-/**
- * Handle project action.
- * @param {string} action - The action to perform.
- * @param {string} projectId - The ID of the project.
- */
-const handleProjectAction = (action, projectId) => {
-  console.log(`${action} action for project: ${projectId}`);
-};
 
 /**
  * Projects component.
@@ -603,27 +569,6 @@ const Projects = () => {
                   ))}
                 </Box>
               </CardContent>
-
-              {/* Project Links */}
-              <CardActions sx={{ p: 3, pt: 0 }}>
-                <Box sx={{ display: 'flex', gap: 1, width: '100%' }}>
-                  {project.links.map((link, linkIndex) => (
-                    <Button
-                      key={link.label}
-                      size="small"
-                      variant="outlined"
-                      startIcon={linkIndex === 0 ? <Launch /> : <Code />}
-                      onClick={() => handleProjectAction(link.label.toLowerCase(), project.id)}
-                      sx={{
-                        flex: 1,
-                        fontSize: '0.875rem',
-                      }}
-                    >
-                      {link.label}
-                    </Button>
-                  ))}
-                </Box>
-              </CardActions>
             </Card>
           ))}
         </Box>

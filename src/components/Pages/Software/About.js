@@ -118,10 +118,10 @@ const About = () => {
                   },
                 }}
               >
-                As a former Software Engineering Manager at Boston Consulting Group, I architected and delivered
-                transformative technology solutions for Fortune 500 clients across telecommunications, manufacturing,
-                healthcare, and beyond. My expertise spans GenAI platforms, IoT ecosystems, enterprise APIs, and
-                optimization algorithms.
+                I&apos;m a Principal Forward Deployed Engineer at Galatiq, where I lead end-to-end delivery of
+                enterprise AI agents and applications. I work directly with client stakeholders to translate ambiguous
+                business problems into LLM-powered systems, building full-stack AI applications in Python and
+                TypeScript across cloud and on-prem environments, and exploring voice and real-time AI solutions.
               </Typography>
 
               <Typography
@@ -136,10 +136,12 @@ const About = () => {
                   },
                 }}
               >
-                I led engineering teams from rapid prototyping to production deployment, turning data science concepts
-                into scalable systems that drove real business outcomes. Whether implementing DEEP.AI for customer
-                management, building digital twins for manufacturing, or creating AI-powered inspection tools, I
-                bridged the gap between cutting-edge research and practical solutions.
+                Previously, as a Senior Software Engineering Manager at Boston Consulting Group (BCG X) and its Global
+                Topic Lead for Rapid Prototyping, I managed and mentored global engineering teams of 15+ and delivered
+                technology for Fortune 500 clients across telecommunications, manufacturing, healthcare, and beyond.
+                That work included production RAG chatbot agents, a drug repurposing analytics platform that cut
+                research turnaround time by roughly 32%, and real-time defect logging for BCG&apos;s Manufacturing AI
+                suite that halved manual QA time.
               </Typography>
 
               <Typography
@@ -156,7 +158,9 @@ const About = () => {
               >
                 My approach blends technical depth with strategic thinking—understanding not just how to build
                 something, but why it matters and how it fits into the broader business ecosystem. I&apos;m passionate
-                about mentoring teams, fostering innovation, and delivering solutions that create lasting impact.
+                about mentoring teams, fostering innovation, and delivering solutions that create lasting impact. Along
+                the way I received BCG&apos;s Innovator Award and, twice, its Career Coach Star Award, and I coached
+                800+ small business owners on practical AI adoption through the Dance Studio Owners Association.
               </Typography>
             </Stack>
           </Grid>
