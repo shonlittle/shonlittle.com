@@ -7,20 +7,14 @@
 // Add third-party dependencies.
 import { useState } from 'react';
 import { Box, Typography, alpha, useTheme, Container, Stack, Button } from '@mui/material';
+import { Download } from '@mui/icons-material';
 
 // Add local dependencies.
 import useNavigation from '../../../hooks/useNavigation';
+import content from '../../../content/software.json';
 
-// Array of code lines to display.
-const codeLines = [
-  'const softwareEngineer = {',
-  "  name: 'Shon Little',",
-  "  role: 'Principal Forward Deployed Engineer',",
-  "  company: 'Galatiq',",
-  "  location: 'Los Angeles, CA',",
-  "  passion: 'Building scalable solutions',",
-  '};',
-];
+// Hero content.
+const { hero, person, resume } = content;
 
 /**
  * Hero component.
@@ -83,6 +77,7 @@ const Hero = () => {
 
       {/* Code Background */}
       <Box
+        aria-hidden="true"
         sx={{
           position: 'absolute',
           top: 0,
@@ -99,7 +94,7 @@ const Hero = () => {
           p: 4,
         }}
       >
-        {codeLines.map((line, index) => (
+        {hero.codeLines.map((line, index) => (
           <Typography
             key={line}
             component="div"
@@ -160,7 +155,7 @@ const Hero = () => {
                 animation: 'fadeIn 0.8s ease forwards',
               }}
             >
-              Shon Little
+              {person.name}
             </Typography>
 
             <Typography
@@ -175,7 +170,11 @@ const Hero = () => {
                 transform: 'translateY(30px)',
               }}
             >
-              Principal Forward Deployed Engineer <br /> Agentic AI <br /> Hands-On Engineering Leader
+              {hero.headline.map(line => (
+                <Box component="span" key={line} sx={{ display: 'block' }}>
+                  {line}
+                </Box>
+              ))}
             </Typography>
 
             <Typography
@@ -193,13 +192,7 @@ const Hero = () => {
                 transform: 'translateY(30px)',
               }}
             >
-              I&apos;m a hands-on AI engineer and engineering leader who turns business challenges into
-              production-ready solutions. As a Principal Forward Deployed Engineer at Galatiq, I lead end-to-end
-              delivery of enterprise AI agents and applications—architecting agentic workflows, tool orchestration, and
-              evaluation frameworks, and taking them from rapid prototype to scalable production. I specialize in
-              Python, agentic AI, multi-agent orchestration, Retrieval-Augmented Generation (RAG), and full-stack
-              development. Before that, I spent over a decade at BCG leading global engineering teams for Fortune 500
-              clients and serving as BCG X&apos;s Global Topic Lead for Rapid Prototyping.
+              {hero.intro}
             </Typography>
 
             <Stack
@@ -234,6 +227,21 @@ const Hero = () => {
                 }}
               >
                 Get In Touch
+              </Button>
+
+              <Button
+                component="a"
+                href={resume.href}
+                download={resume.fileName}
+                variant="outlined"
+                size="large"
+                startIcon={<Download />}
+                sx={{
+                  px: 4,
+                  py: 1.5,
+                }}
+              >
+                {resume.label}
               </Button>
             </Stack>
           </Box>

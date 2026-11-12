@@ -111,6 +111,25 @@ const defaultTheme = {
           }
         }
 
+        section[id] {
+          scroll-margin-top: 72px;
+        }
+
+        :focus-visible {
+          outline: 2px solid #00d4ff;
+          outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-delay: 0s !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+        }
+
         html, body {
           background: #0a0a0a;
           color: #e0e0e0;

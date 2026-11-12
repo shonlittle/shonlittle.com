@@ -5,77 +5,283 @@
  */
 
 // Add third-party dependencies.
-import { Box, Container, Typography, Card, CardContent, Chip, Stack } from '@mui/material';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Box, Container, Typography, Card, CardContent, CardActions, Button, Chip, Collapse } from '@mui/material';
+import { ExpandMore } from '@mui/icons-material';
 
-// add local dependencies.
+// Add local dependencies.
 import deep from '../../../assets/images/deep.png';
 import mfg from '../../../assets/images/mfg.png';
 import drug from '../../../assets/images/drug.png';
 import airline from '../../../assets/images/airline.png';
 import dashboard from '../../../assets/images/dashboard.png';
 import inspection from '../../../assets/images/inspection.png';
-import laurelsAimf from '../../../assets/images/laurels-aimf.png';
-import laurelsPixelMinds from '../../../assets/images/laurels-pixel-minds.png';
-import laurelsScff from '../../../assets/images/laurels-scff.png';
-import laurelsTziff from '../../../assets/images/laurels-tziff.png';
+import content from '../../../content/software.json';
+
+// Project images, keyed by the `image` field in the content file.
+const images = { deep, mfg, drug, airline, dashboard, inspection };
 
 // Array of projects with details.
-const projects = [
-  {
-    id: 'deep-ai',
-    image: deep,
-    title: 'DEEP.AI Platform Implementation',
-    description:
-      "Led the deployment of BCG's generative AI customer management platform for telecom and B2B clients. Shipped production-grade Retrieval-Augmented Generation (RAG) chatbot agents with React, FastAPI, LangChain, and Pinecone to boost upselling and retention through real-time customer analytics and LLM-driven insights.",
-    technologies: ['RAG', 'Generative AI', 'LangChain', 'OpenAI API', 'Pinecone'],
-    gradient: 'primary',
-  },
-  {
-    id: 'mfg-ai',
-    image: mfg,
-    title: 'Factory of the Future – MFG.AI',
-    description:
-      "Modernized operations for manufacturing clients with IoT sensors, digital twins, and real-time defect logging automation that cut manual QA time by 50% and became part of BCG's Manufacturing AI suite. Integrated edge computing with GCP-hosted FastAPI services and React dashboards for predictive maintenance and analytics.",
-    technologies: ['Digital Twin', 'Edge Computing', 'IoT', 'FastAPI', 'GCP'],
-    gradient: 'secondary',
-  },
-  {
-    id: 'drug-ai',
-    image: drug,
-    title: 'DRUG.AI – Pharma Discovery Platform',
-    description:
-      'Built and deployed an AI-powered analytics platform for drug repurposing that reduced research turnaround time by ~32%. Normalized evolving pharma R&D data schemas into a unified model and used graph traversal, NLP, and real-time filters to reveal gene-disease relationships.',
-    technologies: ['AI/ML', 'Bioinformatics', 'Graph Analytics', 'Spring Boot', 'PostgreSQL'],
-    gradient: 'orange',
-  },
-  {
-    id: 'airline-optimization',
-    image: airline,
-    title: 'Airline Disruption Optimization Engine',
-    description:
-      'Built a real-time rerouting engine for a major EU airline to handle flight disruptions. Delivered a working MVP in under a week using Python, D3.js, and optimization algorithms—mitigating losses during high-impact operational events.',
-    technologies: ['Python', 'D3.js', 'Optimization Algorithms', 'Real-time Systems', 'Azure'],
-    gradient: 'green',
-  },
-  {
-    id: 'manufacturing-api',
-    image: dashboard,
-    title: 'Real-time Manufacturing API Suite',
-    description:
-      'Led architecture and development of reusable microservices for manufacturing workflows. Designed scalable, low-latency APIs with FastAPI and PostgreSQL, integrated into larger suite of tools to support global deployment.',
-    technologies: ['FastAPI', 'PostgreSQL', 'Microservices', 'Kubernetes', 'CI/CD'],
-    gradient: 'purple',
-  },
-  {
-    id: 'inspection-tools',
-    image: inspection,
-    title: 'AI-Powered Inspection Tools',
-    description:
-      'Created geospatial mobile apps with predictive AI to support nonprofit enforcement efforts. Enabled smarter deployment of field resources using location clustering, visual overlays, and mobile-first design.',
-    technologies: ['Geospatial Analysis', 'Predictive AI', 'React', 'Mapbox', 'PostgreSQL'],
-    gradient: 'pink',
-  },
-];
+const { projects } = content;
+
+// Shared style for the small labels inside a case study.
+const caseStudyLabelSx = {
+  color: 'secondary.main',
+  fontSize: '0.75rem',
+  fontWeight: 700,
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
+  mb: 0.5,
+};
+
+// Shared style for the body text inside a case study.
+const caseStudyTextSx = {
+  color: 'text.secondary',
+  lineHeight: 1.6,
+  mb: 2,
+};
+
+/**
+ * ProjectCard component.
+ * @param {Object} props - Component properties.
+ * @param {Object} props.project - Project to render.
+ * @param {number} props.index - Position of the card, used to stagger the animation.
+ * @returns {React.ReactElement} component.
+ */
+const ProjectCard = ({ project, index }) => {
+  // Add state hook for the expandable case study.
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Set identifiers that tie the toggle button to the case study region.
+  const titleId = `project-${project.id}-title`;
+  const caseStudyId = `project-${project.id}-case-study`;
+  const image = project.image ? images[project.image] : null;
+
+  // Render component.
+  return (
+    <Card
+      component="article"
+      aria-labelledby={titleId}
+      elevation={0}
+      variant="hover"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden',
+        // Stagger animation delay
+        animation: 'fadeInUp 0.6s ease forwards',
+        animationDelay: `${index * 0.1}s`,
+        opacity: 0,
+      }}
+    >
+      {/* Project Image, or a gradient panel when there is no image */}
+      <Box sx={{ height: 200, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+        {image ? (
+          <Box
+            component="img"
+            src={image}
+            alt=""
+            width={361}
+            height={200}
+            loading="lazy"
+            decoding="async"
+            sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        ) : (
+          <Box
+            aria-hidden="true"
+            sx={theme => ({
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: `${theme.palette.gradients[project.gradient] ?? theme.palette.gradients.primary}`,
+              position: 'relative',
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18) 0%, rgba(10, 10, 10, 0.55) 70%)',
+              },
+            })}
+          >
+            <Typography
+              component="span"
+              sx={{
+                position: 'relative',
+                zIndex: 1,
+                color: '#ffffff',
+                fontWeight: 700,
+                fontSize: '1.5rem',
+                letterSpacing: '0.04em',
+                textAlign: 'center',
+                px: 2,
+              }}
+            >
+              {project.panelLabel}
+            </Typography>
+          </Box>
+        )}
+      </Box>
+
+      {/* Project Content */}
+      <CardContent sx={{ flexGrow: 1, p: 3, pb: 1 }}>
+        {/* Client or industry context */}
+        <Typography
+          component="p"
+          sx={{
+            color: '#fb923c',
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            mb: 1,
+          }}
+        >
+          {project.context}
+        </Typography>
+
+        <Typography id={titleId} variant="h6" component="h3" sx={{ mb: 2, fontWeight: 600, color: 'text.primary' }}>
+          {project.title}
+        </Typography>
+
+        {/* Outcome: a headline metric when there is one, otherwise a short outcome line */}
+        {project.metric ? (
+          <Box sx={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', columnGap: 1.5, mb: 2 }}>
+            <Typography
+              variant="gradient"
+              component="span"
+              sx={{ fontSize: '2.25rem', fontWeight: 700, lineHeight: 1.1, whiteSpace: 'nowrap' }}
+            >
+              {project.metric.value}
+            </Typography>
+            <Typography component="span" sx={{ color: 'text.primary', fontWeight: 600, fontSize: '0.95rem' }}>
+              {project.metric.label}
+            </Typography>
+          </Box>
+        ) : (
+          <Typography
+            component="p"
+            sx={{
+              color: 'text.primary',
+              fontWeight: 600,
+              fontSize: '0.95rem',
+              borderLeft: '3px solid',
+              borderColor: 'secondary.main',
+              pl: 1.5,
+              mb: 2,
+            }}
+          >
+            {project.outcome}
+          </Typography>
+        )}
+
+        <Typography variant="body2" sx={{ mb: 2.5, color: 'text.secondary', lineHeight: 1.6 }}>
+          {project.summary}
+        </Typography>
+
+        {/* Technology Tags */}
+        <Box
+          component="ul"
+          aria-label="Key technologies"
+          sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, listStyle: 'none' }}
+        >
+          {project.technologies.map(tech => (
+            <Box component="li" key={tech}>
+              <Chip label={tech} color="secondary" variant="skill" size="small" sx={{ fontSize: '0.75rem' }} />
+            </Box>
+          ))}
+        </Box>
+      </CardContent>
+
+      {/* Case Study Toggle */}
+      <CardActions sx={{ px: 3, pb: 2, pt: 1 }}>
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={() => setIsOpen(open => !open)}
+          aria-expanded={isOpen}
+          aria-controls={caseStudyId}
+          endIcon={
+            <ExpandMore sx={{ transition: 'transform 0.3s ease', transform: isOpen ? 'rotate(180deg)' : 'none' }} />
+          }
+          sx={{ fontSize: '0.875rem' }}
+        >
+          {isOpen ? 'Hide case study' : 'View case study'}
+        </Button>
+      </CardActions>
+
+      {/* Case Study */}
+      <Collapse in={isOpen} timeout="auto">
+        <Box
+          id={caseStudyId}
+          role="region"
+          aria-label={`${project.title} case study`}
+          sx={{ px: 3, pb: 3, pt: 1, borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}
+        >
+          <Typography component="h4" sx={{ ...caseStudyLabelSx, mt: 2 }}>
+            Business challenge
+          </Typography>
+          <Typography variant="body2" sx={caseStudyTextSx}>
+            {project.challenge}
+          </Typography>
+
+          <Typography component="h4" sx={caseStudyLabelSx}>
+            My role
+          </Typography>
+          <Typography variant="body2" sx={caseStudyTextSx}>
+            {project.role}
+          </Typography>
+
+          <Typography component="h4" sx={caseStudyLabelSx}>
+            Solution
+          </Typography>
+          <Box component="ul" sx={{ ...caseStudyTextSx, pl: 2.5 }}>
+            {project.solution.map(item => (
+              <Typography component="li" variant="body2" key={item} sx={{ lineHeight: 1.6, mb: 0.5 }}>
+                {item}
+              </Typography>
+            ))}
+          </Box>
+
+          <Typography component="h4" sx={caseStudyLabelSx}>
+            Result
+          </Typography>
+          <Typography variant="body2" sx={{ ...caseStudyTextSx, color: 'text.primary', mb: 0 }}>
+            {project.result}
+          </Typography>
+        </Box>
+      </Collapse>
+    </Card>
+  );
+};
+
+// Set component property types.
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    panelLabel: PropTypes.string,
+    gradient: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    context: PropTypes.string.isRequired,
+    metric: PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    }),
+    outcome: PropTypes.string,
+    summary: PropTypes.string.isRequired,
+    challenge: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+    solution: PropTypes.arrayOf(PropTypes.string).isRequired,
+    result: PropTypes.string.isRequired,
+    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 /**
  * Projects component.
@@ -99,356 +305,19 @@ const Projects = () => {
     >
       <Container maxWidth="lg">
         {/* Section Title */}
-        <Typography variant="sectionTitle" component="h2">
+        <Typography variant="sectionTitle" component="h2" sx={{ mb: 2 }}>
           Featured Projects
         </Typography>
 
-        {/* Director.exe Video Collection */}
-        <Box sx={{ mb: 6 }}>
-          <Typography
-            variant="h4"
-            component="h3"
-            sx={{
-              mb: 2,
-              textAlign: 'center',
-              fontWeight: 600,
-              background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Director.exe - AI Film Project
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{
-              mb: 4,
-              textAlign: 'center',
-              maxWidth: '800px',
-              mx: 'auto',
-              color: 'text.secondary',
-              lineHeight: 1.6,
-            }}
-          >
-            A fully AI-crafted narrative comedy about an artificial director losing control of its own dramatic
-            masterpiece. Built using a suite of generative tools including ChatGPT, Runway, Leonardo.ai, ElevenLabs,
-            and Suno. This project showcases my ability to integrate cutting-edge AI technologies across storytelling,
-            media production, and user experience — with a healthy dose of humor and glitch.
-          </Typography>
-
-          {/* AIMF Official Selection Image and Text */}
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={{ xs: 2, sm: 4 }}
-            justifyContent="center"
-            alignItems="center"
-            sx={{ mb: 4 }}
-          >
-            <Box sx={{ textAlign: 'center' }}>
-              <Box
-                component="img"
-                src={laurelsTziff}
-                alt="TZIFF Semi-Finalist"
-                sx={{
-                  maxWidth: '200px',
-                  width: '100%',
-                  height: 'auto',
-                  mx: 'auto',
-                  mb: 2,
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.05)',
-                  },
-                }}
-              />
-              <Typography
-                variant="body2"
-                sx={{
-                  fontStyle: 'italic',
-                  color: 'text.secondary',
-                  fontSize: '0.8rem',
-                }}
-              >
-                Semi-Finalist – Tarzana International
-                <br />
-                Film Festival (TZIFF)
-              </Typography>
-            </Box>
-            <Box sx={{ textAlign: 'center' }}>
-              <Box
-                component="img"
-                src={laurelsAimf}
-                alt="AIMF Official Selection"
-                sx={{
-                  maxWidth: '200px',
-                  width: '100%',
-                  height: 'auto',
-                  mx: 'auto',
-                  mb: 2,
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.05)',
-                  },
-                }}
-              />
-              <Typography
-                variant="body2"
-                sx={{
-                  fontStyle: 'italic',
-                  color: 'text.secondary',
-                  fontSize: '0.8rem',
-                }}
-              >
-                Semi-Finalist – Artificial Intelligence
-                <br />
-                Media Festival (AIMF)
-              </Typography>
-            </Box>
-            <Box sx={{ textAlign: 'center' }}>
-              <Box
-                component="img"
-                src={laurelsPixelMinds}
-                alt="Pixel Minds Official Selection"
-                sx={{
-                  maxWidth: '200px',
-                  width: '100%',
-                  height: 'auto',
-                  mx: 'auto',
-                  mb: 2,
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.05)',
-                  },
-                }}
-              />
-              <Typography
-                variant="body2"
-                sx={{
-                  fontStyle: 'italic',
-                  color: 'text.secondary',
-                  fontSize: '0.8rem',
-                }}
-              >
-                Official Selection – Pixel Minds
-                <br />
-                Film Festival
-              </Typography>
-            </Box>
-            <Box sx={{ textAlign: 'center' }}>
-              <Box
-                component="img"
-                src={laurelsScff}
-                alt="Studio City Film Festival Official Selection"
-                sx={{
-                  maxWidth: '200px',
-                  width: '100%',
-                  height: 'auto',
-                  mx: 'auto',
-                  mb: 2,
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.05)',
-                  },
-                }}
-              />
-              <Typography
-                variant="body2"
-                sx={{
-                  fontStyle: 'italic',
-                  color: 'text.secondary',
-                  fontSize: '0.8rem',
-                }}
-              >
-                Official Selection – Studio City
-                <br />
-                International Film & TV Festival
-              </Typography>
-            </Box>
-          </Stack>
-
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: {
-                xs: '1fr',
-                md: 'repeat(3, 1fr)',
-              },
-              gap: { xs: 3, md: 4 },
-              mb: 4,
-            }}
-          >
-            {/* Trailer */}
-            <Card
-              elevation={0}
-              variant="hover"
-              sx={{
-                overflow: 'hidden',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  position: 'relative',
-                  paddingTop: '56.25%', // 16:9 aspect ratio
-                  overflow: 'hidden',
-                }}
-              >
-                <Box
-                  component="iframe"
-                  src="https://www.youtube.com/embed/Fw0PQEOGF2I"
-                  title="Director.exe Trailer"
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                  }}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </Box>
-              <CardContent sx={{ p: 2 }}>
-                <Typography variant="h6" component="h4" sx={{ fontWeight: 600, mb: 1 }}>
-                  🎬 Trailer
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Get a glimpse of the AI director&apos;s chaotic journey
-                </Typography>
-              </CardContent>
-            </Card>
-
-            {/* Main Film */}
-            <Card
-              elevation={0}
-              variant="hover"
-              sx={{
-                overflow: 'hidden',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  position: 'relative',
-                  paddingTop: '56.25%', // 16:9 aspect ratio
-                  overflow: 'hidden',
-                }}
-              >
-                <Box
-                  component="iframe"
-                  src="https://www.youtube.com/embed/U3JAt9uH7zE"
-                  title="Director.exe Short Film"
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                  }}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </Box>
-              <CardContent sx={{ p: 2 }}>
-                <Typography variant="h6" component="h4" sx={{ fontWeight: 600, mb: 1 }}>
-                  🎭 Full Film
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  The complete AI-generated narrative comedy
-                </Typography>
-              </CardContent>
-            </Card>
-
-            {/* Blooper Reel */}
-            <Card
-              elevation={0}
-              variant="hover"
-              sx={{
-                overflow: 'hidden',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  position: 'relative',
-                  paddingTop: '56.25%', // 16:9 aspect ratio
-                  overflow: 'hidden',
-                }}
-              >
-                <Box
-                  component="iframe"
-                  src="https://www.youtube.com/embed/kVoPYgHj6Oc"
-                  title="Director.exe Blooper Reel"
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                  }}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </Box>
-              <CardContent sx={{ p: 2 }}>
-                <Typography variant="h6" component="h4" sx={{ fontWeight: 600, mb: 1 }}>
-                  😂 Bloopers
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Behind-the-scenes AI glitches and outtakes
-                </Typography>
-              </CardContent>
-            </Card>
-          </Box>
-
-          {/* Technology Stack for this project */}
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
-              AI Tools Used:
-            </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center' }}>
-              {['ChatGPT', 'Runway', 'Leonardo.ai', 'ElevenLabs', 'Suno'].map(tool => (
-                <Chip
-                  key={tool}
-                  label={tool}
-                  color="primary"
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    fontSize: '0.75rem',
-                    '&:hover': {
-                      backgroundColor: 'primary.main',
-                      color: 'primary.contrastText',
-                    },
-                  }}
-                />
-              ))}
-            </Box>
-          </Box>
-        </Box>
-
-        <Typography variant="sectionTitle" component="h2">
-          Software Projects
+        <Typography
+          variant="body1"
+          sx={{ textAlign: 'center', color: 'text.secondary', maxWidth: '720px', mx: 'auto', mb: { xs: 5, md: 7 } }}
+        >
+          Enterprise AI and software engineering work I helped architect, build, and deliver. Client names and
+          proprietary details are left out on purpose.
         </Typography>
 
-        {/* Projects Grid - Force 3 columns layout */}
+        {/* Projects Grid */}
         <Box
           sx={{
             display: 'grid',
@@ -463,113 +332,7 @@ const Projects = () => {
           }}
         >
           {projects.map((project, index) => (
-            <Card
-              key={project.id}
-              elevation={0}
-              variant="hover"
-              sx={{
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                overflow: 'hidden',
-                // Stagger animation delay
-                animation: 'fadeInUp 0.6s ease forwards',
-                animationDelay: `${index * 0.2}s`,
-                opacity: 0,
-              }}
-            >
-              {/* Project Image/Icon */}
-              <Box
-                sx={{
-                  height: 200,
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <Box
-                  component="img"
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  sx={theme => ({
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    position: 'relative',
-                    zIndex: 1,
-                    transition: 'all 0.3s ease',
-                    ...theme.mixins.hoverTransform,
-                    '&:hover': {
-                      ...theme.mixins.hoverTransform['&:hover'],
-                      transform: 'scale(1.05)',
-                    },
-                  })}
-                />
-                {/* Optional gradient overlay for better text contrast if needed */}
-                <Box
-                  sx={theme => ({
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background: `linear-gradient(45deg, ${theme.palette.gradients[project.gradient ?? 'default']})`,
-                    opacity: 0,
-                    transition: 'opacity 0.3s ease',
-                    zIndex: 2,
-                    '&:hover': {
-                      opacity: 0.1,
-                    },
-                  })}
-                />
-              </Box>
-
-              {/* Project Content */}
-              <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                <Typography
-                  variant="h6"
-                  component="h3"
-                  sx={theme => ({
-                    mb: 2,
-                    fontWeight: 600,
-                    color: theme.palette.text.primary,
-                    transition: 'color 0.3s ease',
-                    '&:hover': {
-                      color: theme.palette.secondary.main,
-                    },
-                  })}
-                >
-                  {project.title}
-                </Typography>
-
-                <Typography
-                  variant="body2"
-                  sx={theme => ({
-                    mb: 3,
-                    color: theme.palette.text.secondary,
-                    lineHeight: 1.6,
-                  })}
-                >
-                  {project.description}
-                </Typography>
-
-                {/* Technology Tags */}
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
-                  {project.technologies.map(tech => (
-                    <Chip
-                      key={tech}
-                      label={tech}
-                      color="secondary"
-                      variant="skill"
-                      size="small"
-                      sx={{
-                        fontSize: '0.75rem',
-                      }}
-                    />
-                  ))}
-                </Box>
-              </CardContent>
-            </Card>
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </Box>
       </Container>

@@ -14,7 +14,7 @@ import {
   IconButton,
   Drawer,
   List,
-  ListItem,
+  ListItemButton,
   ListItemText,
   useTheme,
 } from '@mui/material';
@@ -79,7 +79,7 @@ const MobileNavigation = () => {
           <IconButton
             edge="end"
             color="inherit"
-            aria-label="menu"
+            aria-label="Open navigation menu"
             onClick={() => setIsMenuOpen(true)}
             sx={{
               backgroundColor: 'rgba(255, 255, 255, 0.2)',
@@ -131,10 +131,9 @@ const MobileNavigation = () => {
             Shon Little
           </Typography>
 
-          <List>
+          <List component="nav" aria-label="Sections">
             {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map(item => (
-              <ListItem
-                button
+              <ListItemButton
                 key={item}
                 onClick={() => {
                   scrollToSection(item.toLowerCase());
@@ -156,7 +155,7 @@ const MobileNavigation = () => {
                     },
                   }}
                 />
-              </ListItem>
+              </ListItemButton>
             ))}
           </List>
         </Box>

@@ -18,7 +18,7 @@ import {
   IconButton,
   Drawer,
   List,
-  ListItem,
+  ListItemButton,
   ListItemText,
   useTheme,
   useMediaQuery,
@@ -77,7 +77,7 @@ const Navigation = () => {
         <Toolbar sx={{ justifyContent: 'space-between', maxWidth: 1200, mx: 'auto', width: '100%' }}>
           <Typography
             variant="gradient"
-            component="h6"
+            component="div"
             sx={{
               fontWeight: 700,
             }}
@@ -87,7 +87,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           {!isMobile && (
-            <Box sx={{ display: 'flex', gap: 3 }}>
+            <Box component="nav" aria-label="Sections" sx={{ display: 'flex', gap: 3 }}>
               {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map(item => (
                 <Button
                   key={item}
@@ -128,7 +128,7 @@ const Navigation = () => {
             <IconButton
               edge="end"
               color="inherit"
-              aria-label="menu"
+              aria-label="Open navigation menu"
               onClick={() => setIsMenuOpen(true)}
               sx={{
                 ml: 2,
@@ -164,7 +164,7 @@ const Navigation = () => {
             >
               <Typography
                 variant="gradient"
-                component="h6"
+                component="div"
                 sx={{
                   fontWeight: 700,
                   px: 3,
@@ -174,10 +174,9 @@ const Navigation = () => {
                 Shon Little
               </Typography>
 
-              <List>
+              <List component="nav" aria-label="Sections">
                 {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map(item => (
-                  <ListItem
-                    button
+                  <ListItemButton
                     key={item}
                     onClick={() => {
                       scrollToSection(item.toLowerCase());
@@ -200,7 +199,7 @@ const Navigation = () => {
                         },
                       }}
                     />
-                  </ListItem>
+                  </ListItemButton>
                 ))}
               </List>
             </Box>

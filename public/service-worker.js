@@ -1,96 +1,100 @@
 /* eslint-env serviceworker */
 // public/service-worker.js
-const CACHE_NAME = 'shonlittle-portfolio-v1';
-const OFFLINE_URL = '/offline.html';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/offline.html',
-  '/static/js/main.chunk.js',
-  '/static/js/0.chunk.js',
-  '/static/js/bundle.js',
-  '/manifest.json',
-  '/favicon.ico',
-  '/images/software.webp',
-  '/images/acting.webp',
-  '/pdf/shon-little-resume-2025.pdf',
-  'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap',
-];
 
-// Install a service worker
+// Bump this version whenever the caching rules below change, so old caches are dropped.
+const CACHE_NAME = 'shonlittle-portfolio-v2';
+const OFFLINE_URL = '/offline.html';
+
+// Small, stable files that make up the offline shell. Build output under /static/ has hashed
+// file names that change on every build, so it is cached at runtime instead of listed here.
+const urlsToCache = [OFFLINE_URL, '/manifest.json', '/favicon.ico', '/images/software.webp', '/images/acting.webp'];
+
+// Install the service worker.
 globalThis.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      console.log('Opened cache');
-      return cache.addAll(urlsToCache);
-    })
+    caches
+      .open(CACHE_NAME)
+      // Cache each file on its own so one missing file cannot fail the whole install.
+      .then(cache => Promise.allSettled(urlsToCache.map(url => cache.add(url))))
+      .then(() => globalThis.skipWaiting())
   );
 });
 
-// Cache and return requests
+/**
+ * Store a successful same-origin response in the cache.
+ * @param {Request} request - Request that was made.
+ * @param {Response} response - Response that was received.
+ */
+const cacheResponse = (request, response) => {
+  if (response && response.status === 200 && response.type === 'basic') {
+    const responseToCache = response.clone();
+    caches.open(CACHE_NAME).then(cache => cache.put(request, responseToCache));
+  }
+};
+
+// Serve requests.
 globalThis.addEventListener('fetch', event => {
-  // Handle navigation requests (HTML pages)
-  if (event.request.mode === 'navigate') {
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // Leave non-GET and cross-origin requests (fonts, video embeds, form posts) to the browser.
+  if (request.method !== 'GET' || url.origin !== globalThis.location.origin) {
+    return;
+  }
+
+  // Pages: always go to the network so content is never stale; show the offline page if that fails.
+  if (request.mode === 'navigate') {
+    event.respondWith(fetch(request).catch(() => caches.match(OFFLINE_URL)));
+    return;
+  }
+
+  // Hashed build output never changes for a given URL, so the cache can answer first.
+  if (url.pathname.startsWith('/static/')) {
     event.respondWith(
-      fetch(event.request).catch(() => {
-        // If offline and requesting a page, show offline page
-        return caches.match(OFFLINE_URL);
-      })
+      caches.match(request).then(
+        cached =>
+          cached ||
+          fetch(request).then(response => {
+            cacheResponse(request, response);
+            return response;
+          })
+      )
     );
     return;
   }
 
-  // Handle other requests (assets, API calls, etc.)
+  // Everything else (images, manifest, PDFs) can change without changing its URL:
+  // use the network first and fall back to the cache when offline.
   event.respondWith(
-    caches.match(event.request).then(response => {
-      // Cache hit - return response
-      if (response) {
+    fetch(request)
+      .then(response => {
+        cacheResponse(request, response);
         return response;
-      }
-
-      // Clone the request - fetch() uses up the request once consumed
-      const fetchRequest = event.request.clone();
-
-      return fetch(fetchRequest)
-        .then(networkResponse => {
-          // Check if we received a valid response
-          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-            return networkResponse;
+      })
+      .catch(() =>
+        caches.match(request).then(cached => {
+          if (cached) {
+            return cached;
           }
-
-          // Clone the response
-          const responseToCache = networkResponse.clone();
-
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseToCache);
-          });
-
-          return networkResponse;
-        })
-        .catch(error => {
-          console.error('Fetch failed:', error);
-          // For image requests, you could return a default offline image
-          if (event.request.destination === 'image') {
+          if (request.destination === 'image') {
             return caches.match('/favicon.ico'); // Fallback image
           }
-
-          // For other resources, just propagate the error
-          throw error;
-        });
-    })
+          return Response.error();
+        })
+      )
   );
 });
 
-// Update a service worker
+// Activate the service worker: drop old caches and take control of open pages.
 globalThis.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(cacheName => cacheWhitelist.indexOf(cacheName) === -1)
-          .map(cacheName => caches.delete(cacheName))
-      );
-    })
+    caches
+      .keys()
+      .then(cacheNames =>
+        Promise.all(
+          cacheNames.filter(cacheName => cacheName !== CACHE_NAME).map(cacheName => caches.delete(cacheName))
+        )
+      )
+      .then(() => globalThis.clients.claim())
   );
 });
