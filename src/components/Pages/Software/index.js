@@ -11,6 +11,8 @@ import { Box, CircularProgress, useMediaQuery, useTheme } from '@mui/material';
 // Add local dependencies.
 import Navigation from './Navigation';
 import MobileNavigation from './MobileNavigation';
+import usePageMeta from '../../../hooks/usePageMeta';
+import content from '../../../content/software.json';
 
 // Lazy load components.
 const Hero = lazy(() => import('./Hero'));
@@ -18,6 +20,7 @@ const About = lazy(() => import('./About'));
 const Skills = lazy(() => import('./Skills'));
 const Projects = lazy(() => import('./Projects'));
 const Experience = lazy(() => import('./Experience'));
+const Creative = lazy(() => import('./Creative'));
 const Contact = lazy(() => import('./Contact'));
 const Footer = lazy(() => import('./Footer'));
 
@@ -37,6 +40,9 @@ const SectionLoader = () => (
  * @returns {React.ReactElement} component.
  */
 const Software = () => {
+  // Set the page title, description and canonical URL.
+  usePageMeta(content.meta);
+
   // Check if screen is mobile using a direct media query
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -51,6 +57,7 @@ const Software = () => {
         <Skills key="skills" />,
         <Projects key="projects" />,
         <Experience key="experience" />,
+        <Creative key="creative" />,
         <Contact key="contact" />,
         <Footer key="footer" />,
       ].map(section => (

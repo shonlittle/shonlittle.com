@@ -7,109 +7,11 @@
 // Add third-party dependencies.
 import { Box, Container, Typography, Paper, Chip, alpha } from '@mui/material';
 
-// Array of skill categories and skills.
-const skillCategories = [
-  {
-    id: 'programming',
-    title: 'Languages & Frameworks',
-    skills: [
-      'Python',
-      'TypeScript',
-      'JavaScript',
-      'Java',
-      'Golang',
-      'SQL',
-      'Rust (learning)',
-      'React',
-      'Next.js',
-      'FastAPI',
-      'Django REST Framework',
-      'Node.js',
-    ],
-  },
-  {
-    id: 'ai-ml',
-    title: 'AI & Agentic Systems',
-    skills: [
-      'Generative AI',
-      'Large Language Models (LLMs)',
-      'Intelligent Agent Systems',
-      'Multi-Agent Orchestration',
-      'Model Context Protocol (MCP)',
-      'Retrieval-Augmented Generation (RAG)',
-      'LangChain',
-      'LangGraph',
-      'CrewAI',
-      'LlamaIndex',
-      'OpenAI API',
-      'Pinecone',
-      'ChromaDB',
-      'Claude Code',
-      'Voice AI',
-    ],
-  },
-  {
-    id: 'cloud',
-    title: 'Cloud & DevOps',
-    skills: [
-      'AWS',
-      'Azure',
-      'GCP',
-      'Docker',
-      'Kubernetes',
-      'GitHub Actions',
-      'CircleCI',
-      'Azure DevOps',
-      'Datadog',
-      'Sentry',
-    ],
-  },
-  {
-    id: 'enterprise',
-    title: 'Architecture & Data',
-    skills: [
-      'REST APIs',
-      'GraphQL',
-      'Microservices',
-      'OAuth 2.0',
-      'JWT',
-      'Real-time Systems',
-      'PostgreSQL',
-      'MongoDB',
-      'Redis',
-      'Snowflake',
-    ],
-  },
-  {
-    id: 'specialized',
-    title: 'Specialized Domains',
-    skills: [
-      'Digital Twins',
-      'Edge Computing',
-      'Optimization Algorithms',
-      'Geospatial Analysis',
-      'Manufacturing Systems',
-      'Healthcare Platforms',
-      'Telecommunications',
-    ],
-  },
-  {
-    id: 'leadership',
-    title: 'Leadership & Strategy',
-    skills: [
-      'Technical Leadership',
-      'Solution Architecture',
-      'Rapid Prototyping',
-      'Agile & Scrum',
-      'Cross-functional Teams',
-      'Client Engagement',
-      'Stakeholder Management',
-      'MVP Development',
-      'Mentorship',
-      'Thought Leadership',
-    ],
-  },
-];
+// Add local dependencies.
+import content from '../../../content/software.json';
+
+// Skill categories.
+const skillCategories = content.skills;
 
 /**
  * Skills component.
@@ -138,16 +40,13 @@ const Skills = () => {
           Technical Expertise
         </Typography>
 
-        {/* Skills Grid - Force 2x3 layout */}
+        {/* Skills Grid - two wide cards on the first row, three on the second */}
         <Box
           sx={{
             display: 'grid',
             gridTemplateColumns: {
               xs: '1fr', // 1 column on mobile
-              md: 'repeat(3, 1fr)', // 3 columns on desktop
-            },
-            gridTemplateRows: {
-              md: 'repeat(2, 1fr)', // 2 rows on desktop
+              md: 'repeat(6, 1fr)', // 6 tracks on desktop
             },
             gap: { xs: 3, md: 4 },
             maxWidth: '1200px',
@@ -160,6 +59,7 @@ const Skills = () => {
               elevation={0}
               variant="hover"
               sx={{
+                gridColumn: { md: index < 2 ? 'span 3' : 'span 2' },
                 height: '100%',
                 p: 3,
                 // Stagger animation delay

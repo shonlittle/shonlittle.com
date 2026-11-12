@@ -17,7 +17,8 @@ const useNavigation = setIsMenuOpen => {
     sectionId => {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+        element.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
       }
       // Close mobile menu if callback provided
       if (setIsMenuOpen) {
