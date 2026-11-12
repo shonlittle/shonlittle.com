@@ -47,8 +47,8 @@ const Footer = () => {
               },
             }}
           >
-            © 2025 Shon Little. Crafted with
-            <Favorite sx={{ fontSize: '1rem', color: '#ef4444' }} />
+            © {new Date().getFullYear()} Shon Little. Crafted with
+            <Favorite titleAccess="love" sx={{ fontSize: '1rem', color: '#ef4444' }} />
             and modern web technologies.
           </Typography>
         </Box>

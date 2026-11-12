@@ -5,24 +5,28 @@
  */
 
 // Add third-party dependencies.
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
-import { GitHub, LinkedIn } from '@mui/icons-material';
+import { Download } from '@mui/icons-material';
+
+// Add local dependencies.
+import content from '../../../content/software.json';
+
+// Contact content.
+const { contact, person, resume } = content;
 
 // Array of contact links with icons, labels, and URLs.
 const contactLinks = [
   {
     id: 'github',
     label: 'GitHub',
-    href: 'https://github.com/shonlittle',
-    icon: <GitHub sx={{ fontSize: '1.5rem' }} />,
+    href: person.github,
     emoji: '📁',
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/shonlittle',
-    icon: <LinkedIn sx={{ fontSize: '1.5rem' }} />,
+    href: person.linkedin,
     emoji: '💼',
   },
 ];
@@ -36,9 +40,6 @@ const contactLinks = [
  * @returns {React.ReactElement} component.
  */
 const Contact = () => {
-  // Set navigation hook.
-  const navigate = useNavigate();
-
   // Render component.
   return (
     <Box
@@ -59,7 +60,7 @@ const Contact = () => {
             mb: { xs: 4, md: 6 },
           }}
         >
-          Let&apos;s Connect
+          {contact.title}
         </Typography>
 
         {/* Contact Content */}
@@ -69,7 +70,7 @@ const Contact = () => {
             variant="h6"
             component="p"
             sx={{
-              mb: { xs: 6, md: 8 },
+              mb: { xs: 4, md: 5 },
               fontSize: { xs: '1.1rem', md: '1.25rem' },
               lineHeight: 1.6,
               color: '#e0e0e0',
@@ -81,9 +82,21 @@ const Contact = () => {
               },
             }}
           >
-            I&apos;m always interested in discussing new opportunities, innovative projects, or simply connecting with
-            fellow tech enthusiasts. Feel free to reach out through any of the channels below.
+            {contact.intro}
           </Typography>
+
+          {/* Résumé Download */}
+          <Button
+            component="a"
+            href={resume.href}
+            download={resume.fileName}
+            variant="gradient"
+            size="large"
+            startIcon={<Download />}
+            sx={{ px: 4, py: 1.5, mb: { xs: 4, md: 5 } }}
+          >
+            {resume.label}
+          </Button>
 
           {/* Contact Links */}
           <Stack
@@ -92,17 +105,18 @@ const Contact = () => {
             justifyContent="center"
             sx={{ flexWrap: 'wrap', gap: { xs: 2, md: 3 } }}
           >
-            {contactLinks.map((contact, index) => (
+            {contactLinks.map((link, index) => (
               <Button
-                key={contact.id}
+                key={link.id}
                 component="a"
-                href={contact.href}
-                target={contact.href.startsWith('mailto:') ? '_self' : '_blank'}
+                href={link.href}
+                target={link.href.startsWith('mailto:') ? '_self' : '_blank'}
                 rel="noopener noreferrer"
                 variant="hover"
                 size="large"
                 startIcon={
                   <Box
+                    aria-hidden="true"
                     sx={{
                       fontSize: '1.5rem',
                       transition: 'transform 0.3s ease',
@@ -111,7 +125,7 @@ const Contact = () => {
                       },
                     }}
                   >
-                    {contact.emoji}
+                    {link.emoji}
                   </Box>
                 }
                 sx={{
@@ -132,17 +146,17 @@ const Contact = () => {
                   },
                 }}
               >
-                {contact.label}
+                {link.label}
               </Button>
             ))}
             <Button
-              onClick={() => navigate('/email')}
-              component="a"
-              rel="noopener noreferrer"
+              component={RouterLink}
+              to="/email"
               variant="hover"
               size="large"
               startIcon={
                 <Box
+                  aria-hidden="true"
                   sx={{
                     fontSize: '1.5rem',
                     transition: 'transform 0.3s ease',

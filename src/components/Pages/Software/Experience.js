@@ -8,49 +8,11 @@
 import { Box, Container, Typography, Paper, alpha } from '@mui/material';
 import { AccessTime } from '@mui/icons-material';
 
+// Add local dependencies.
+import content from '../../../content/software.json';
+
 // Array of experiences.
-const experiences = [
-  {
-    id: 'galatiq-principal-fde',
-    date: '2026 – Present',
-    title: 'Principal Forward Deployed Engineer – AI Systems',
-    company: 'Galatiq',
-    description:
-      'Lead end-to-end delivery of enterprise AI agents and applications, translating ambiguous business problems into production-grade LLM-powered systems. Architect agentic workflows, tool orchestration, and evaluation frameworks, explore voice and real-time AI solutions, and mentor engineers on forward-deployed delivery standards.',
-  },
-  {
-    id: 'dsoa-coach',
-    date: '2025 – 2026',
-    title: 'AI Expert Coach (Part-Time)',
-    company: 'Dance Studio Owners Association',
-    description:
-      'Led AI coaching sessions for 800+ small business owners, delivering practical AI education and adoption frameworks for non-technical audiences. Advised on emerging AI trends and integrated AI-assisted and automation tools into daily business workflows.',
-  },
-  {
-    id: 'bcg-senior-manager',
-    date: '2021 – 2025',
-    title: 'Senior Software Engineering Manager',
-    company: 'Boston Consulting Group (BCG X)',
-    description:
-      'Managed and mentored global engineering teams of 15+ delivering enterprise AI solutions across telecom, manufacturing, and healthcare. Served as Global Topic Lead for Rapid Prototyping, led system design reviews, and shipped production RAG chatbot agents, a drug repurposing analytics platform (~32% faster research turnaround), and defect logging automation for MFG.AI (50% less manual QA time).',
-  },
-  {
-    id: 'bcg-lead',
-    date: '2011 – 2021',
-    title: 'Lead Software Engineer',
-    company: 'Boston Consulting Group (BCG Gamma)',
-    description:
-      'Led Agile teams and established CI/CD pipelines and automated testing while delivering microservices-based automation platforms and real-time decision systems for Fortune 500 clients. Built airline disruption rerouting, AI-powered patent analytics, contract spend dashboards, and inventory automation that delivered millions in client savings.',
-  },
-  {
-    id: 'releve-director',
-    date: '2007 – Present',
-    title: 'Director of Software Engineering (Part-Time)',
-    company: 'Relevé Studios',
-    description:
-      'Designed and maintained custom software systems for studio operations, including scheduling, billing, and CRM integrations. Applied full-stack engineering and cloud infrastructure to support business growth.',
-  },
-];
+const experiences = content.experience;
 
 /**
  * Experience component.
@@ -153,7 +115,7 @@ const Experience = () => {
                 >
                   {/* Date */}
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                    <AccessTime sx={{ fontSize: '1rem', color: '#00d4ff' }} />
+                    <AccessTime aria-hidden="true" sx={{ fontSize: '1rem', color: '#00d4ff' }} />
                     <Typography
                       variant="body2"
                       sx={{
@@ -194,12 +156,8 @@ const Experience = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      color: '#a0a0a0',
+                      color: '#b8b8b8',
                       lineHeight: 1.6,
-                      transition: 'color 0.3s ease',
-                      '&:hover': {
-                        color: '#e0e0e0',
-                      },
                     }}
                   >
                     {exp.description}

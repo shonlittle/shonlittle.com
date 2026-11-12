@@ -1,0 +1,372 @@
+{
+  "meta": {
+    "title": "Shon Little | AI Engineering Leader & Principal Forward Deployed Engineer",
+    "description": "Hands-on AI engineering leader and Principal Forward Deployed Engineer. Agentic AI, multi-agent systems, RAG, and enterprise AI solutions that deliver measurable results.",
+    "url": "https://shonlittle.com/software",
+    "image": "https://shonlittle.com/images/software.png",
+    "imageAlt": "Shon Little – AI engineering leader and software engineering portfolio",
+    "keywords": [
+      "AI Engineering Leader",
+      "Principal Forward Deployed Engineer",
+      "Agentic AI",
+      "Enterprise AI Solutions",
+      "Software Engineering Leadership"
+    ]
+  },
+  "person": {
+    "name": "Shon Little",
+    "jobTitle": "AI Engineering Leader",
+    "location": "Los Angeles, CA",
+    "github": "https://github.com/shonlittle",
+    "linkedin": "https://www.linkedin.com/in/shonlittle/"
+  },
+  "resume": {
+    "href": "/pdf/shon-little-resume-2026.pdf",
+    "fileName": "Shon-Little-Resume-2026.pdf",
+    "label": "Download Résumé"
+  },
+  "hero": {
+    "headline": ["AI Engineering Leader", "Principal Forward Deployed Engineer", "Hands-On Architect"],
+    "intro": "I'm a hands-on AI engineering leader who turns complex business problems into production software. I design and build enterprise AI applications, agentic workflows, multi-agent systems, and retrieval-augmented generation (RAG) solutions, and I've worked at every stage: architecture, rapid prototyping, hands-on development, and production delivery. I still build the systems myself, and I bring the leadership experience to guide global engineering teams and work directly with executive stakeholders.",
+    "codeLines": [
+      "const softwareEngineer = {",
+      "  name: 'Shon Little',",
+      "  role: 'AI Engineering Leader',",
+      "  focus: 'Agentic AI & Enterprise RAG',",
+      "  location: 'Los Angeles, CA',",
+      "  passion: 'Building scalable solutions',",
+      "};"
+    ]
+  },
+  "about": {
+    "paragraphs": [
+      "I'm an engineering leader who never stopped building. I spent 33 years at Boston Consulting Group across several roles, finishing as Senior Software Engineering Manager at BCG X. There I served as Global Topic Lead for Rapid Prototyping and led and mentored globally distributed engineering teams of 15+.",
+      "Most of my career has been spent working directly with Fortune 500 clients in manufacturing, healthcare, telecommunications, retail, and other industries: finding the real problem, designing the solution, building the MVP, and delivering the production application. I'm a full-stack engineer at heart, most at home in Python, TypeScript, React, FastAPI, and cloud architectures. Lately my focus has been generative AI, agentic systems, RAG, and enterprise integrations.",
+      "Along the way I received BCG's Innovator Award and two Career Coach Star Awards, and I've coached 800+ small-business owners on practical AI adoption. I care as much about why something matters to the business as how it gets built."
+    ]
+  },
+  "skills": [
+    {
+      "id": "ai",
+      "title": "AI & Agentic Engineering",
+      "skills": [
+        "Large Language Models (LLMs)",
+        "Generative AI",
+        "Multi-Agent Systems",
+        "LangGraph",
+        "LangChain",
+        "Retrieval-Augmented Generation (RAG)",
+        "Model Context Protocol (MCP)",
+        "Tool Calling",
+        "Agent Evaluation",
+        "Vector Search",
+        "Voice AI",
+        "xAI / Grok",
+        "OpenAI API"
+      ]
+    },
+    {
+      "id": "programming",
+      "title": "Programming & Application Development",
+      "skills": [
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "Next.js",
+        "FastAPI",
+        "Django REST Framework",
+        "Node.js",
+        "SQL"
+      ]
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud & Infrastructure",
+      "skills": ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "CI/CD", "GitHub Actions"]
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture & Enterprise Integration",
+      "skills": [
+        "REST APIs",
+        "Microservices",
+        "PostgreSQL",
+        "Event-Driven Systems",
+        "Authentication",
+        "Enterprise Integrations",
+        "Real-Time Systems"
+      ]
+    },
+    {
+      "id": "leadership",
+      "title": "Engineering Leadership",
+      "skills": [
+        "Solution Architecture",
+        "Hands-On Technical Leadership",
+        "Rapid Prototyping",
+        "Technical Strategy",
+        "Team Mentorship",
+        "Stakeholder Engagement",
+        "Client Delivery"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "negotiation-platform",
+      "image": null,
+      "panelLabel": "Multi-Agent AI",
+      "gradient": "primary",
+      "title": "Enterprise Multi-Agent Negotiation Platform",
+      "context": "Major U.S. retailer",
+      "metric": { "value": "21%", "label": "improvement in margins" },
+      "summary": "A multi-agent AI application that supports vendor negotiations, with specialized agents working across the process and people approving the decisions that matter.",
+      "challenge": "A major U.S. retailer wanted to improve vendor negotiations and support better commercial decisions through AI-driven analysis and coordinated agent workflows.",
+      "role": "I helped architect and build the solution, including the agent orchestration, the integrations, and the overall application architecture.",
+      "solution": [
+        "Multi-agent orchestration with LangGraph, with agents handling specialized tasks and coordinating across multiple steps",
+        "LLM-powered analysis and recommendations",
+        "Tool use through APIs and enterprise system integrations",
+        "Structured inputs and outputs",
+        "Python backend services",
+        "Human oversight and approval for consequential actions"
+      ],
+      "result": "A 21% improvement in margins, with the platform supporting the negotiation process and people keeping approval of consequential actions.",
+      "technologies": ["Multi-Agent Systems", "LangGraph", "Python", "Tool Calling", "Human-in-the-Loop"]
+    },
+    {
+      "id": "rag-knowledge-assistant",
+      "image": null,
+      "panelLabel": "Enterprise RAG",
+      "gradient": "purple",
+      "title": "Enterprise RAG Knowledge Assistant",
+      "context": "Turbomachinery engineering",
+      "metric": null,
+      "outcome": "Grounded answers from complex technical documentation",
+      "summary": "A domain-specific knowledge assistant that helps engineers and technical specialists search and reason over complex technical documentation.",
+      "challenge": "Engineers and technical specialists needed a faster way to search and reason over complex turbomachinery documentation.",
+      "role": "I engineered the assistant's retrieval-augmented generation pipeline, from document ingestion through retrieval, generation, and quality evaluation.",
+      "solution": [
+        "Document ingestion and processing",
+        "Chunking and embedding generation",
+        "Semantic retrieval",
+        "Context-grounded responses generated with Grok through the xAI API",
+        "Retrieval and response quality evaluation",
+        "Enterprise data integration"
+      ],
+      "result": "Gives engineers and technical specialists an assistant whose answers are grounded in their own technical documentation.",
+      "technologies": ["RAG", "xAI API (Grok)", "Semantic Retrieval", "Embeddings", "Evaluation"]
+    },
+    {
+      "id": "deep-ai",
+      "image": "deep",
+      "gradient": "primary",
+      "title": "DEEP.AI Platform Implementation",
+      "context": "Telecom and B2B clients",
+      "metric": null,
+      "outcome": "Production RAG chatbot agents for upselling and retention",
+      "summary": "BCG's generative AI customer management platform, deployed for telecom and B2B clients.",
+      "challenge": "Telecom and B2B clients wanted to boost upselling and retention using generative AI and real-time customer analytics.",
+      "role": "I led the deployment of BCG's generative AI customer management platform.",
+      "solution": [
+        "Production-grade RAG chatbot agents",
+        "React front end with FastAPI services",
+        "LangChain, OpenAI API, and Pinecone for retrieval and generation",
+        "Real-time customer analytics and LLM-driven insights"
+      ],
+      "result": "Shipped production-grade RAG chatbot agents for B2B knowledge automation workflows.",
+      "technologies": ["RAG", "LangChain", "OpenAI API", "Pinecone", "FastAPI"]
+    },
+    {
+      "id": "drug-ai",
+      "image": "drug",
+      "gradient": "orange",
+      "title": "DRUG.AI – Pharma Discovery Platform",
+      "context": "Pharma R&D",
+      "metric": { "value": "~32%", "label": "faster research turnaround" },
+      "summary": "An AI-powered analytics platform that helps pharma researchers find drug repurposing candidates.",
+      "challenge": "Pharma researchers needed to find drug repurposing candidates faster across evolving R&D data schemas.",
+      "role": "I built and deployed the analytics platform.",
+      "solution": [
+        "Normalized evolving pharma R&D data schemas into a unified model",
+        "Graph traversal and NLP to reveal gene-disease relationships",
+        "Real-time filters for exploring results"
+      ],
+      "result": "Reduced research turnaround time by ~32%.",
+      "technologies": ["AI/ML", "Bioinformatics", "Graph Analytics", "Spring Boot", "PostgreSQL"]
+    },
+    {
+      "id": "mfg-ai",
+      "image": "mfg",
+      "gradient": "secondary",
+      "title": "Factory of the Future – MFG.AI",
+      "context": "Manufacturing",
+      "metric": { "value": "50%", "label": "less manual QA time" },
+      "summary": "Plant modernization with IoT sensors, digital twins, and real-time defect logging automation.",
+      "challenge": "Manufacturing clients needed to modernize plant operations and replace slow, manual defect logging.",
+      "role": "I engineered the real-time defect logging automation and integrated it into BCG's Manufacturing AI suite (MFG.AI).",
+      "solution": [
+        "IoT sensors and digital twins",
+        "Edge computing with GCP-hosted FastAPI services",
+        "React dashboards for predictive maintenance and analytics",
+        "Real-time defect logging automation"
+      ],
+      "result": "Cut manual QA time by 50%, and the defect logging system became part of BCG's Manufacturing AI suite.",
+      "technologies": ["Digital Twin", "Edge Computing", "IoT", "FastAPI", "GCP"]
+    },
+    {
+      "id": "airline-optimization",
+      "image": "airline",
+      "gradient": "green",
+      "title": "Airline Disruption Optimization Engine",
+      "context": "Major EU airline",
+      "metric": { "value": "< 1 week", "label": "to a working MVP" },
+      "summary": "A real-time rerouting engine for handling flight disruptions.",
+      "challenge": "A major EU airline needed to reroute flights in real time during disruptions to limit losses.",
+      "role": "I built the rerouting engine and delivered the working MVP.",
+      "solution": [
+        "Real-time rerouting driven by optimization algorithms",
+        "Built in Python with D3.js visualization"
+      ],
+      "result": "Delivered a working MVP in under a week, mitigating losses during high-impact operational events.",
+      "technologies": ["Python", "D3.js", "Optimization Algorithms", "Real-Time Systems", "Azure"]
+    },
+    {
+      "id": "manufacturing-api",
+      "image": "dashboard",
+      "gradient": "purple",
+      "title": "Real-Time Manufacturing API Suite",
+      "context": "Manufacturing",
+      "metric": null,
+      "outcome": "Reusable, low-latency services built for global deployment",
+      "summary": "Reusable microservices behind a suite of manufacturing tools.",
+      "challenge": "Manufacturing workflows needed shared, reusable services that could support a global deployment.",
+      "role": "I led the architecture and development.",
+      "solution": [
+        "Reusable microservices for manufacturing workflows",
+        "Scalable, low-latency APIs with FastAPI and PostgreSQL",
+        "Integration into a larger suite of tools"
+      ],
+      "result": "A reusable API suite integrated into a larger set of tools to support global deployment.",
+      "technologies": ["FastAPI", "PostgreSQL", "Microservices", "Kubernetes", "CI/CD"]
+    },
+    {
+      "id": "inspection-tools",
+      "image": "inspection",
+      "gradient": "pink",
+      "title": "AI-Powered Inspection Tools",
+      "context": "Nonprofit enforcement",
+      "metric": null,
+      "outcome": "Smarter deployment of field resources",
+      "summary": "Geospatial mobile apps with predictive AI for nonprofit enforcement teams.",
+      "challenge": "A nonprofit wanted to deploy field resources more effectively in its enforcement efforts.",
+      "role": "I created the geospatial mobile apps.",
+      "solution": ["Predictive AI with location clustering", "Visual map overlays", "Mobile-first design"],
+      "result": "Enabled smarter deployment of field resources.",
+      "technologies": ["Geospatial Analysis", "Predictive AI", "React", "Mapbox", "PostgreSQL"]
+    }
+  ],
+  "experience": [
+    {
+      "id": "galatiq-principal-fde",
+      "date": "2026",
+      "title": "Principal Forward Deployed Engineer – AI Systems",
+      "company": "Galatiq",
+      "description": "Led end-to-end delivery of enterprise AI agents and applications, translating ambiguous business problems into production-grade LLM-powered systems. Architected and built agentic workflows, tool orchestration, and evaluation frameworks hands-on, explored voice and real-time AI solutions, and mentored engineers on forward-deployed delivery standards."
+    },
+    {
+      "id": "dsoa-coach",
+      "date": "2025 – 2026",
+      "title": "AI Expert Coach (Part-Time)",
+      "company": "Dance Studio Owners Association",
+      "description": "Led AI coaching sessions for 800+ small business owners, delivering practical AI education and adoption frameworks for non-technical audiences. Advised on emerging AI trends and integrated AI-assisted and automation tools into daily business workflows."
+    },
+    {
+      "id": "bcg-senior-manager",
+      "date": "2021 – 2025",
+      "title": "Senior Software Engineering Manager",
+      "company": "Boston Consulting Group (BCG X)",
+      "description": "Managed and mentored global engineering teams of 15+ while staying hands-on in the architecture and delivery of enterprise AI solutions across telecom, manufacturing, and healthcare. Served as Global Topic Lead for Rapid Prototyping, led system design reviews, and shipped production RAG chatbot agents, a drug repurposing analytics platform (~32% faster research turnaround), and defect logging automation for MFG.AI (50% less manual QA time)."
+    },
+    {
+      "id": "bcg-lead",
+      "date": "2011 – 2021",
+      "title": "Lead Software Engineer",
+      "company": "Boston Consulting Group (BCG Gamma)",
+      "description": "Led Agile teams and established CI/CD pipelines and automated testing while building microservices-based automation platforms and real-time decision systems for Fortune 500 clients. Built airline disruption rerouting, AI-powered patent analytics, contract spend dashboards, and inventory automation that delivered millions in client savings."
+    },
+    {
+      "id": "bcg-earlier",
+      "date": "Before 2011",
+      "title": "Earlier BCG Roles",
+      "company": "Boston Consulting Group",
+      "description": "The first part of a 33-year BCG career spanning several roles, ahead of the engineering leadership roles above."
+    },
+    {
+      "id": "releve-director",
+      "date": "2007 – Present",
+      "title": "Director of Software Engineering (Part-Time)",
+      "company": "Relevé Studios",
+      "description": "Designed and maintained custom software systems for studio operations, including scheduling, billing, and CRM integrations. Applied full-stack engineering and cloud infrastructure to support business growth."
+    }
+  ],
+  "creative": {
+    "title": "Creative AI Experiments",
+    "intro": "I like exploring AI beyond enterprise software, too. These side projects are where I try new generative tools and bring some creativity to the technology.",
+    "film": {
+      "title": "Director.exe – AI Film Project",
+      "description": "A fully AI-crafted narrative comedy about an artificial director losing control of its own dramatic masterpiece, built with a suite of generative tools for writing, video, imagery, voice, and music. It comes with a healthy dose of humor and glitch.",
+      "tools": ["ChatGPT", "Runway", "Leonardo.ai", "ElevenLabs", "Suno"],
+      "laurels": [
+        {
+          "id": "tziff",
+          "alt": "Laurel: Semi-Finalist, Tarzana International Film Festival 2025",
+          "lines": ["Semi-Finalist – Tarzana International", "Film Festival (TZIFF)"]
+        },
+        {
+          "id": "aimf",
+          "alt": "Laurel: Semi-Finalist, Artificial Intelligence Media Festival 2025",
+          "lines": ["Semi-Finalist – Artificial Intelligence", "Media Festival (AIMF)"]
+        },
+        {
+          "id": "pixelMinds",
+          "alt": "Laurel: Official Selection, Pixel Minds Film Festival 2025",
+          "lines": ["Official Selection – Pixel Minds", "Film Festival"]
+        },
+        {
+          "id": "scff",
+          "alt": "Laurel: Official Selection, Studio City International Film & TV Festival 2025",
+          "lines": ["Official Selection – Studio City", "International Film & TV Festival"]
+        }
+      ],
+      "videos": [
+        {
+          "id": "trailer",
+          "src": "https://www.youtube.com/embed/Fw0PQEOGF2I",
+          "iframeTitle": "Director.exe Trailer",
+          "title": "🎬 Trailer",
+          "caption": "Get a glimpse of the AI director's chaotic journey"
+        },
+        {
+          "id": "film",
+          "src": "https://www.youtube.com/embed/U3JAt9uH7zE",
+          "iframeTitle": "Director.exe Short Film",
+          "title": "🎭 Full Film",
+          "caption": "The complete AI-generated narrative comedy"
+        },
+        {
+          "id": "bloopers",
+          "src": "https://www.youtube.com/embed/kVoPYgHj6Oc",
+          "iframeTitle": "Director.exe Blooper Reel",
+          "title": "😂 Bloopers",
+          "caption": "Behind-the-scenes AI glitches and outtakes"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "intro": "I'm open to conversations about AI engineering leadership and hands-on forward deployed roles. Reach out through any of the channels below, or download my résumé."
+  }
+}
