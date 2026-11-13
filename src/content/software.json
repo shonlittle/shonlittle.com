@@ -40,7 +40,7 @@
   },
   "about": {
     "paragraphs": [
-      "I'm an engineering leader who never stopped building. I spent 33 years at Boston Consulting Group across several roles, finishing as Senior Software Engineering Manager at BCG X. There I served as Global Topic Lead for Rapid Prototyping and led and mentored globally distributed engineering teams of 15+.",
+      "I'm an engineering leader who never stopped building. I spent over 20 years at Boston Consulting Group across several roles, finishing as Senior Software Engineering Manager at BCG X. There I served as Global Topic Lead for Rapid Prototyping and led and mentored globally distributed engineering teams of 15+.",
       "Most of my career has been spent working directly with Fortune 500 clients in manufacturing, healthcare, telecommunications, retail, and other industries: finding the real problem, designing the solution, building the MVP, and delivering the production application. I'm a full-stack engineer at heart, most at home in Python, TypeScript, React, FastAPI, and cloud architectures. Lately my focus has been generative AI, agentic systems, RAG, and enterprise integrations.",
       "Along the way I received BCG's Innovator Award and two Career Coach Star Awards, and I've coached 800+ small-business owners on practical AI adoption. I care as much about why something matters to the business as how it gets built."
     ]
@@ -301,7 +301,7 @@
       "date": "Before 2011",
       "title": "Earlier BCG Roles",
       "company": "Boston Consulting Group",
-      "description": "The first part of a 33-year BCG career spanning several roles, ahead of the engineering leadership roles above."
+      "description": "The first part of a 20+ year BCG career spanning several roles, ahead of the engineering leadership roles above."
     },
     {
       "id": "releve-director",
@@ -320,6 +320,11 @@
       "tools": ["ChatGPT", "Runway", "Leonardo.ai", "ElevenLabs", "Suno"],
       "laurels": [
         {
+          "id": "scff",
+          "alt": "Laurel: Studio City International Film & TV Festival 2025",
+          "lines": ["Winner Best Crewless Short – Studio City", "International Film & TV Festival"]
+        },
+        {
           "id": "tziff",
           "alt": "Laurel: Semi-Finalist, Tarzana International Film Festival 2025",
           "lines": ["Semi-Finalist – Tarzana International", "Film Festival (TZIFF)"]
@@ -333,11 +338,6 @@
           "id": "pixelMinds",
           "alt": "Laurel: Official Selection, Pixel Minds Film Festival 2025",
           "lines": ["Official Selection – Pixel Minds", "Film Festival"]
-        },
-        {
-          "id": "scff",
-          "alt": "Laurel: Official Selection, Studio City International Film & TV Festival 2025",
-          "lines": ["Official Selection – Studio City", "International Film & TV Festival"]
         }
       ],
       "videos": [
