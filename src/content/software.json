@@ -115,7 +115,7 @@
   "projects": [
     {
       "id": "negotiation-platform",
-      "image": null,
+      "image": "negotiation",
       "panelLabel": "Multi-Agent AI",
       "gradient": "primary",
       "title": "Enterprise Multi-Agent Negotiation Platform",
@@ -137,7 +137,7 @@
     },
     {
       "id": "rag-knowledge-assistant",
-      "image": null,
+      "image": "rag",
       "panelLabel": "Enterprise RAG",
       "gradient": "purple",
       "title": "Enterprise RAG Knowledge Assistant",
