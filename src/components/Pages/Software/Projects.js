@@ -11,6 +11,8 @@ import { Box, Container, Typography, Card, CardContent, CardActions, Button, Chi
 import { ExpandMore } from '@mui/icons-material';
 
 // Add local dependencies.
+import negotiation from '../../../assets/images/negotiation.jpg';
+import rag from '../../../assets/images/rag.jpg';
 import deep from '../../../assets/images/deep.png';
 import mfg from '../../../assets/images/mfg.png';
 import drug from '../../../assets/images/drug.png';
@@ -20,7 +22,7 @@ import inspection from '../../../assets/images/inspection.png';
 import content from '../../../content/software.json';
 
 // Project images, keyed by the `image` field in the content file.
-const images = { deep, mfg, drug, airline, dashboard, inspection };
+const images = { negotiation, rag, deep, mfg, drug, airline, dashboard, inspection };
 
 // Array of projects with details.
 const { projects } = content;
